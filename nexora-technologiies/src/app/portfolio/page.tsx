@@ -205,7 +205,7 @@ export default function PortfolioPage() {
             className="text-center"
           >
             <p className="text-white/50 mb-4 text-sm">Ready to start your project?</p>
-            <Link href="/contact" className="btn-primary inline-flex group">
+            <Link href="/contact" className="btn-primary inline-flex group ">
               Get in Touch
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>

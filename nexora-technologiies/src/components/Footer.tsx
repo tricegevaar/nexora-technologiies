@@ -17,97 +17,101 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="footer-main">
         <div className="container">
-          <div className="footer-grid">
-            {/* Brand Section */}
-            <div className="footer-brand">
-              <div className="footer-logo">
-                <Image 
-                  src="/photos/nexoraLogo.png" 
-                  alt="Nexora Technologies" 
-                  width={200} 
-                  height={75} 
-                  className="footer-logo-img"
-                />
+          <div className="footer-grid-2x2">
+            {/* Top Row */}
+            <div className="footer-row footer-row-top">
+              {/* Brand Section - Left */}
+              <div className="footer-brand">
+                <div className="footer-logo">
+                  <Image 
+                    src="/photos/nexoraLogo.png" 
+                    alt="Nexora Technologies" 
+                    width={220} 
+                    height={80} 
+                    className="footer-logo-img"
+                  />
+                </div>
+                <p className="footer-description">
+                  Transforming ideas into digital excellence through innovative technology <br /> solutions and expert consultancy services.
+                </p>
+                <div className="footer-social">
+                  <a
+                    href="https://wa.me/27848744120"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-link whatsapp"
+                    aria-label="WhatsApp"
+                  >
+                    <MessageCircle size={18} />
+                  </a>
+                  <a
+                    href="#"
+                    className="social-link linkedin"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin size={18} />
+                  </a>
+                  <a
+                    href="#"
+                    className="social-link facebook"
+                    aria-label="Facebook"
+                  >
+                    <Facebook size={18} />
+                  </a>
+                </div>
               </div>
-              <p className="footer-description">
-                Transforming ideas into digital excellence through innovative technology solutions and expert consultancy services.
-              </p>
-              <div className="footer-social">
-                <a
-                  href="https://wa.me/27848744120"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-link whatsapp"
-                  aria-label="WhatsApp"
-                >
-                  <MessageCircle size={18} />
-                </a>
-                <a
-                  href="#"
-                  className="social-link linkedin"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={18} />
-                </a>
-                <a
-                  href="#"
-                  className="social-link facebook"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={18} />
-                </a>
-              </div>
-            </div>
 
-            {/* Services Section */}
-            <div className="footer-section">
-              <h3 className="footer-heading">Services</h3>
-              <ul className="footer-links">
-                {services.map((item) => (
-                  <li key={item}>
-                    <Link href="/services" className="footer-link">{item}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Company Section */}
-            <div className="footer-section">
-              <h3 className="footer-heading">Company</h3>
-              <ul className="footer-links">
-                <li><Link href="/about" className="footer-link">About Us</Link></li>
-                <li><Link href="/portfolio" className="footer-link">Portfolio</Link></li>
-                <li><Link href="/contact" className="footer-link">Contact</Link></li>
-                <li><Link href="#" className="footer-link">Careers</Link></li>
-                <li><Link href="#" className="footer-link">Blog</Link></li>
-                <li><Link href="#" className="footer-link">Privacy Policy</Link></li>
-              </ul>
-            </div>
-
-            {/* Contact Section */}
-            <div className="footer-section footer-contact">
-              <h3 className="footer-heading">Get In Touch</h3>
-              <div className="contact-info">
-                <div className="contact-item">
-                  <MapPin size={18} className="contact-icon" />
-                  <div className="contact-text">
-                    <span className="contact-label">Address</span>
-                    <span className="contact-value">Simon Vermooten Rd & Bronkhorstspruit Rd, Willow Park Manor, Pretoria, 0184, South Africa</span>
+              {/* Contact Section - Right */}
+              <div className="footer-section footer-contact">
+                <h3 className="footer-heading">Get In Touch</h3>
+                <div className="contact-info">
+                  <div className="contact-item">
+                    <MapPin size={16} className="contact-icon" />
+                    <div className="contact-text">
+                      <span className="contact-label">Address</span>
+                      <span className="contact-value">Simon Vermooten Rd & Bronkhorstspruit Rd, Willow Park Manor, Pretoria, 0184, South Africa</span>
+                    </div>
+                  </div>
+                  <div className="contact-item">
+                    <Phone size={16} className="contact-icon" />
+                    <div className="contact-text">
+                      <span className="contact-label">Phone</span>
+                      <a href="tel:+27848744120" className="contact-value contact-link">+27 84 874 4120</a>
+                    </div>
+                  </div>
+                  <div className="contact-item">
+                    <Mail size={16} className="contact-icon" />
+                    <div className="contact-text">
+                      <span className="contact-label">Email</span>
+                      <a href="mailto:tiisomabogwane81@gmail.com" className="contact-value contact-link">tiisomabogwane81@gmail.com</a>
+                    </div>
                   </div>
                 </div>
-                <div className="contact-item">
-                  <Phone size={18} className="contact-icon" />
-                  <div className="contact-text">
-                    <span className="contact-label">Phone</span>
-                    <a href="tel:+27848744120" className="contact-value contact-link">+27 84 874 4120</a>
-                  </div>
+              </div>
+            </div>
+
+            {/* Bottom Row */}
+            <div className="footer-row footer-row-bottom">
+              {/* Services Section - Left */}
+              <div className="footer-section">
+                <h3 className="footer-heading">Our Services</h3>
+                <div className="footer-links-grid">
+                  {services.map((item) => (
+                    <Link key={item} href="/services" className="footer-link">{item}</Link>
+                  ))}
                 </div>
-                <div className="contact-item">
-                  <Mail size={18} className="contact-icon" />
-                  <div className="contact-text">
-                    <span className="contact-label">Email</span>
-                    <a href="mailto:tiisomabogwane81@gmail.com" className="contact-value contact-link">tiisomabogwane81@gmail.com</a>
-                  </div>
+              </div>
+
+              {/* Company Section - Right */}
+              <div className="footer-section">
+                <h3 className="footer-heading">Company</h3>
+                <div className="footer-links-grid">
+                  <Link href="/about" className="footer-link">About Us</Link>
+                  <Link href="/portfolio" className="footer-link">Portfolio</Link>
+                  <Link href="/contact" className="footer-link">Contact</Link>
+                  <Link href="#" className="footer-link">Careers</Link>
+                  <Link href="#" className="footer-link">Blog</Link>
+                  <Link href="#" className="footer-link">Privacy Policy</Link>
                 </div>
               </div>
             </div>
