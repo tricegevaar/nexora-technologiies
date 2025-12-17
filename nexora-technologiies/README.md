@@ -2,6 +2,8 @@
 
 A modern, professional Next.js website for Nexora Technologies - showcasing digital solutions, services, and portfolio.
 
+> Built with Next.js 16 and deployed on Vercel
+
 ## 🚀 Features
 
 - **Modern Design**: Premium UI with glass morphism effects and smooth animations
