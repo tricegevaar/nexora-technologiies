@@ -489,43 +489,61 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
+  padding: 12px 0;
+  transition: all 0.3s ease;
 }
 
 .contact-icon {
   color: var(--electric-cyan);
   flex-shrink: 0;
-  margin-top: 2px;
+  padding: 8px;
+  background: rgba(31, 182, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .contact-text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  flex: 1;
 }
 
 .contact-label {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 13px;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
 }
 
 .contact-value {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .contact-link {
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .contact-link:hover {
   color: var(--electric-cyan);
+}
+
+.contact-item:hover .contact-icon {
+  background: rgba(31, 182, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.contact-item:hover .contact-value {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-bottom {
@@ -829,15 +847,20 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .contact-item {
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    gap: 8px;
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row;
+    gap: 12px;
+    padding: 10px 0;
   }
   
   .contact-text {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .contact-icon {
+    padding: 6px;
   }
   
   .footer-bottom-content {
@@ -1041,15 +1064,20 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .contact-item {
-    gap: 6px;
+    gap: 10px;
+    padding: 8px 0;
   }
   
   .contact-label {
-    font-size: 12px;
+    font-size: 11px;
   }
   
   .contact-value {
-    font-size: 13px;
+    font-size: 12px;
+  }
+  
+  .contact-icon {
+    padding: 5px;
   }
   
   .footer-bottom {
