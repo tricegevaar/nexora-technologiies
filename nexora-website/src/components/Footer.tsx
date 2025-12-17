@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/5 text-center" style={{ paddingTop: "30px" }}>
-          <p className="text-white/90 text-xs">© {new Date().getFullYear()} Nexora Technologies. All rights reserved.</p>
+          <p className="text-white/90 text-xs">© {new Date().getFullYear()} Nexora Technologiies. All rights reserved.</p>
         </div>
       </div>
     </footer>
