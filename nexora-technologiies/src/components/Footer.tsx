@@ -2,92 +2,139 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, Linkedin, Facebook, MapPin, Phone, Mail } from "lucide-react";
+import { MessageCircle, Linkedin, Facebook, MapPin, Phone, Mail, ArrowUp } from "lucide-react";
 
 const services = ["Software Development", "Web Development", "IT Training", "Social Media", "IT Consultations", "Networking"];
 const company = ["About Us", "Our Team", "Careers", "Portfolio", "Blog", "Contact"];
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="section-blue border-t border-white/5 footer-mobile">
-      <div className="container" style={{ padding: "80px 0 30px" }}>
-        <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "40px", marginBottom: "50px" }}>
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <Image src="/photos/nexoraLogo.png" alt="Nexora" width={230} height={90} className="w-auto" style={{ height: "90px", marginBottom: "15px" }} />
-            <p className="text-white/40 text-sm leading-relaxed" style={{ marginBottom: "15px" }}>
-              Transforming ideas into digital excellence through innovative solutions.
-            </p>
-            <div className="flex gap-2">
-              <a
-                href="https://wa.me/27848744120"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-white/40 hover:text-green-400 hover:border-green-500/30 transition-all"
-              >
-                <MessageCircle size={14} />
-              </a>
-              <a
-                href="#"
-                className="w-8 h-8 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-white/40 hover:text-blue-400 hover:border-blue-500/30 transition-all"
-              >
-                <Linkedin size={14} />
-              </a>
-              <a
-                href="#"
-                className="w-8 h-8 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-white/40 hover:text-blue-600 hover:border-blue-600/30 transition-all"
-              >
-                <Facebook size={14} />
-              </a>
+    <footer className="footer-professional">
+      {/* Main Footer Content */}
+      <div className="footer-main">
+        <div className="container">
+          <div className="footer-grid">
+            {/* Brand Section */}
+            <div className="footer-brand">
+              <div className="footer-logo">
+                <Image 
+                  src="/photos/nexoraLogo.png" 
+                  alt="Nexora Technologies" 
+                  width={200} 
+                  height={75} 
+                  className="footer-logo-img"
+                />
+              </div>
+              <p className="footer-description">
+                Transforming ideas into digital excellence through innovative technology solutions and expert consultancy services.
+              </p>
+              <div className="footer-social">
+                <a
+                  href="https://wa.me/27848744120"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <MessageCircle size={18} />
+                </a>
+                <a
+                  href="#"
+                  className="social-link linkedin"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href="#"
+                  className="social-link facebook"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={18} />
+                </a>
+              </div>
+            </div>
+
+            {/* Services Section */}
+            <div className="footer-section">
+              <h3 className="footer-heading">Services</h3>
+              <ul className="footer-links">
+                {services.map((item) => (
+                  <li key={item}>
+                    <Link href="/services" className="footer-link">{item}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company Section */}
+            <div className="footer-section">
+              <h3 className="footer-heading">Company</h3>
+              <ul className="footer-links">
+                <li><Link href="/about" className="footer-link">About Us</Link></li>
+                <li><Link href="/portfolio" className="footer-link">Portfolio</Link></li>
+                <li><Link href="/contact" className="footer-link">Contact</Link></li>
+                <li><Link href="#" className="footer-link">Careers</Link></li>
+                <li><Link href="#" className="footer-link">Blog</Link></li>
+                <li><Link href="#" className="footer-link">Privacy Policy</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact Section */}
+            <div className="footer-section footer-contact">
+              <h3 className="footer-heading">Get In Touch</h3>
+              <div className="contact-info">
+                <div className="contact-item">
+                  <MapPin size={18} className="contact-icon" />
+                  <div className="contact-text">
+                    <span className="contact-label">Address</span>
+                    <span className="contact-value">Simon Vermooten Rd & Bronkhorstspruit Rd, Willow Park Manor, Pretoria, 0184, South Africa</span>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <Phone size={18} className="contact-icon" />
+                  <div className="contact-text">
+                    <span className="contact-label">Phone</span>
+                    <a href="tel:+27848744120" className="contact-value contact-link">+27 84 874 4120</a>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <Mail size={18} className="contact-icon" />
+                  <div className="contact-text">
+                    <span className="contact-label">Email</span>
+                    <a href="mailto:tiisomabogwane81@gmail.com" className="contact-value contact-link">tiisomabogwane81@gmail.com</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-white font-semibold text-sm relative" style={{ marginBottom: "25px" }}>Services</h3>
-            <ul className="space-y-2">
-              {services.map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-white/40 hover:text-cyan-400 transition-colors text-sm">{item}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-white font-semibold text-sm relative" style={{ marginBottom: "25px" }}>Company</h3>
-            <ul className="space-y-2">
-              {company.map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-white/40 hover:text-cyan-400 transition-colors text-sm">{item}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-white font-semibold text-sm relative" style={{ marginBottom: "25px" }}>Contact</h3>
-            <ul style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <li className="flex items-start gap-3 text-white/40 text-sm" style={{ lineHeight: "1.6" }}>
-                <MapPin size={16} className="text-cyan-400 mt-0.5 flex-shrink-0" />
-                <span>Simon Vermooten Rd & Bronkhorstspruit Rd, Willow Park Manor, Pretoria, 0184, South Africa</span>
-              </li>
-              <li className="flex items-center gap-3 text-white/40 text-sm">
-                <Phone size={16} className="text-cyan-400 flex-shrink-0" />
-                <span>+2784-874-4120</span>
-              </li>
-              <li className="flex items-center gap-3 text-white/40 text-sm">
-                <Mail size={16} className="text-cyan-400 flex-shrink-0" />
-                <span>tiisomabogwane81@gmail.com</span>
-              </li>
-            </ul>
-          </div>
         </div>
+      </div>
 
-        <div className="border-t border-white/5 text-center" style={{ paddingTop: "30px" }}>
-          <p className="text-white/90 text-xs">© {new Date().getFullYear()} Nexora Technologiies. All rights reserved.</p>
+      {/* Footer Bottom */}
+      <div className="footer-bottom">
+        <div className="container">
+          <div className="footer-bottom-content">
+            <div className="footer-copyright">
+              <p>© {new Date().getFullYear()} Nexora Technologies. All rights reserved.</p>
+            </div>
+            <div className="footer-bottom-links">
+              <Link href="#" className="footer-bottom-link">Terms of Service</Link>
+              <Link href="#" className="footer-bottom-link">Privacy Policy</Link>
+              <Link href="#" className="footer-bottom-link">Cookie Policy</Link>
+            </div>
+            <button 
+              onClick={scrollToTop}
+              className="scroll-to-top"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp size={16} />
+            </button>
+          </div>
         </div>
       </div>
     </footer>
