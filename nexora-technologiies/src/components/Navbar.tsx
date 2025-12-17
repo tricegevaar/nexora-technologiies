@@ -82,18 +82,11 @@ export default function Navbar() {
 
         <motion.button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden p-3 text-white hover:text-cyan-400 transition-all relative z-50"
+          className="lg:hidden mobile-menu-button text-white hover:text-cyan-400 transition-all relative z-50"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          style={{
-            background: "rgba(6, 182, 212, 0.1)",
-            backdropFilter: "blur(10px)",
-            borderRadius: "12px",
-            border: "1px solid rgba(6, 182, 212, 0.3)",
-            boxShadow: "0 4px 12px rgba(6, 182, 212, 0.1)"
-          }}
         >
-          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </motion.button>
       </div>
 
@@ -137,7 +130,7 @@ export default function Navbar() {
               </div>
 
               {/* Menu Items */}
-              <div className="flex flex-col items-center p-6 space-y-1 mt-4">
+              <div className="flex flex-col items-center px-6 py-8 space-y-2">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.href}
@@ -149,10 +142,10 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center justify-center px-5 py-4 text-white/90 hover:text-white rounded-xl transition-all duration-300 group mobile-menu-item relative overflow-hidden w-full"
+                      className="mobile-nav-link"
                     >
-                      <span className="font-medium text-[15px] relative z-10">{link.label}</span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <span className="font-medium text-base relative z-10">{link.label}</span>
+                      <div className="mobile-nav-link-bg" />
                     </Link>
                   </motion.div>
                 ))}
@@ -169,10 +162,7 @@ export default function Navbar() {
                   <Link
                     href="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block w-full text-center py-4 px-6 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-cyan-500/30 transition-all duration-300 hover:scale-[1.02]"
-                    style={{
-                      boxShadow: "0 4px 20px rgba(6, 182, 212, 0.2)"
-                    }}
+                    className="mobile-cta-button"
                   >
                     Get Started
                   </Link>
