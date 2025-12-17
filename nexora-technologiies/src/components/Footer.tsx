@@ -69,7 +69,7 @@ export default function Footer() {
                     <MapPin size={16} className="contact-icon" />
                     <div className="contact-text">
                       <span className="contact-label">Address</span>
-                      <span className="contact-value">Simon Vermooten Rd & Bronkhorstspruit Rd, Willow Park Manor, Pretoria, 0184, South Africa</span>
+                      <span className="contact-value">Simon Vermooten & Bronkhorstspruit Rd <br /> Willow Park Manor <br /> Pretoria, 0184 <br /> South Africa</span>
                     </div>
                   </div>
                   <div className="contact-item">
