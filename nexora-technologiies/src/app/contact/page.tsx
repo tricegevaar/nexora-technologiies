@@ -121,7 +121,7 @@ export default function ContactPage() {
         >
           <div className="glass-card rounded-xl p-4 w-48">
             <div className="text-cyan-400 text-sm font-semibold mb-1">Office Hours</div>
-            <div className="text-white/80 text-sm">Mon-Fri: 9AM-6PM</div>
+            <div className="text-white/80 text-sm">Mon-Fri: 9AM-5PM</div>
           </div>
         </motion.div>
       </section>
