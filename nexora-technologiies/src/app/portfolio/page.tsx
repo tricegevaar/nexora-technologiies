@@ -100,12 +100,13 @@ export default function PortfolioPage() {
                 style={{ 
                   marginTop: "1.2rem", 
                   fontSize: "1.1rem", 
-                  lineHeight: "1.6",
+                  lineHeight: "1.7",
                   padding: "0 20px",
-                  textAlign: "center"
+                  textAlign: "center",
+                  fontWeight: "400"
                 }}
               >
-                Explore our collection of successful projects that have revolutionized businesses, enhanced <br /> user experiences and delivered measurable results across various industries.
+                Explore our collection of successful projects that have revolutionized businesses, enhanced user experiences and delivered measurable results across various industries.
               </motion.p>
             </motion.div>
           </div>
@@ -179,12 +180,12 @@ export default function PortfolioPage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col justify-center">
+                    <div className="flex flex-col justify-center portfolio-results">
                       <span className="text-white/30 text-xs uppercase" style={{ marginBottom: "15px" }}>Results</span>
-                      <div className="grid grid-cols-3" style={{ gap: "16px" }}>
+                      <div className="portfolio-results-grid" style={{ gap: "16px" }}>
                         {project.results.map((r) => (
-                          <div key={r.label} className="text-center">
-                            <div className="text-cyan-400 font-semibold">{r.value}</div>
+                          <div key={r.label} className="text-center portfolio-result-item">
+                            <div className="text-cyan-400 font-semibold text-lg">{r.value}</div>
                             <div className="text-white/30 text-xs">{r.label}</div>
                           </div>
                         ))}

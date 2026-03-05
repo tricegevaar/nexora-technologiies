@@ -104,12 +104,13 @@ export default function ServicesPage() {
                 style={{ 
                   marginTop: "1.2rem", 
                   fontSize: "1.1rem", 
-                  lineHeight: "1.6",
+                  lineHeight: "1.7",
                   padding: "0 20px",
-                  textAlign: "center"
+                  textAlign: "center",
+                  fontWeight: "400"
                 }}
               >
-                Comprehensive digital solutions designed to transform your business  and <br /> drive sustainable growth through cutting-edge technology.
+                Comprehensive digital solutions designed to transform your business and drive sustainable growth through cutting-edge technology.
               </motion.p>
             </motion.div>
           </div>

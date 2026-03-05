@@ -6,7 +6,7 @@ import { ArrowRight, Code, Smartphone, Cloud } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center" style={{ padding: "160px 0 80px" }}>
+    <section className="hero-section relative min-h-screen flex items-center" style={{ padding: "160px 0 80px" }}>
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/photos/bg.jpg')" }} />
@@ -20,36 +20,36 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex-1"
+            className="flex-1 hero-content"
           >
             {/* Badge */}
             <div 
-              className="inline-block mb-5"
+              className="inline-block mb-6 hero-badge"
               style={{
                 background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(20px)",
-                padding: "10px 16px",
+                padding: "12px 20px",
                 borderRadius: "15px",
                 border: "1px solid rgba(255,255,255,0.1)"
               }}
             >
-              <span className="text-white font-semibold" style={{ fontSize: "0.9rem" }}>Premium Software Solutions</span>
+              <span className="text-white font-semibold" style={{ fontSize: "0.95rem" }}>Premium Software Solutions</span>
             </div>
 
             {/* Title */}
-            <h1 style={{ fontSize: "3.5rem", fontWeight: 800, lineHeight: 1.1, marginBottom: "20px" }}>
+            <h1 className="hero-title" style={{ fontSize: "3.5rem", fontWeight: 800, lineHeight: 1.1, marginBottom: "24px" }}>
               <span className="block text-white" style={{ letterSpacing: "4px" }}>Transforming</span>
               <span className="block text-white" style={{ letterSpacing: "4px" }}>Digital</span>
               <span className="block gradient-text" style={{ fontSize: "3.8rem", letterSpacing: "8px" }}>Experiences</span>
             </h1>
 
             {/* Description */}
-            <p className="text-white italic" style={{ fontSize: "1.3rem", marginBottom: "30px", maxWidth: "500px" }}>
-              We craft innovative digital solutions that drive business  growth through cutting-edge <br /> technology and exceptional user experiences.
+            <p className="text-white hero-description" style={{ fontSize: "1.2rem", marginBottom: "35px", maxWidth: "550px", lineHeight: "1.7", fontWeight: "400" }}>
+              We craft innovative digital solutions that drive business growth through cutting-edge technology and exceptional user experiences.
             </p>
 
             {/* Buttons */}
-            <div className="flex gap-4" style={{ marginBottom: "60px" }}>
+            <div className="flex gap-4 hero-buttons" style={{ marginBottom: "60px" }}>
               <Link href="/services" className="btn-primary group">
                 Explore Services
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

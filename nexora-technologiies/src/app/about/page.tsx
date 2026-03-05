@@ -86,12 +86,13 @@ export default function AboutPage() {
                 style={{ 
                   marginTop: "1.2rem",
                   fontSize: "1.1rem", 
-                  lineHeight: "1.6",
+                  lineHeight: "1.7",
                   padding: "0 20px",
-                  textAlign: "center"
+                  textAlign: "center",
+                  fontWeight: "400"
                 }}
               >
-                We are a passionate team of digital innovators, crafting cutting-edge solutions that transform businesses <br /> and  drive sustainable growth in the digital age.
+                We are a passionate team of digital innovators, crafting cutting-edge solutions that transform businesses and drive sustainable growth in the digital age.
               </motion.p>
             </motion.div>
           </div>

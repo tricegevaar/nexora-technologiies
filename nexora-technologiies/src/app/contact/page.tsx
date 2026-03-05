@@ -89,12 +89,13 @@ export default function ContactPage() {
                 style={{ 
                   marginTop: "1.2rem", 
                   fontSize: "1.1rem", 
-                  lineHeight: "1.6",
+                  lineHeight: "1.7",
                   padding: "0 20px",
-                  textAlign: "center"
+                  textAlign: "center",
+                  fontWeight: "400"
                 }}
               >
-                Ready to transform your business with cutting-edge technology? Get in touch with our expert team for <br /> a free  consultation and discover how we can bring your vision to life.
+                Ready to transform your business with cutting-edge technology? Get in touch with our expert team for a free consultation and discover how we can bring your vision to life.
               </motion.p>
             </motion.div>
           </div>

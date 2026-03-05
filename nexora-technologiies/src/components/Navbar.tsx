@@ -54,10 +54,10 @@ export default function Navbar() {
           <Image
             src="/photos/nexoraLogo.png"
             alt="Nexora"
-            width={250}
-            height={90}
-            className="w-auto"
-            style={{ height: isScrolled ? "60px" : "80px" }}
+            width={280}
+            height={100}
+            className="w-auto navbar-logo"
+            style={{ height: isScrolled ? "70px" : "90px" }}
             priority
           />
         </Link>
