@@ -213,7 +213,7 @@ export default function ContactPage() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   {[
                     { icon: MapPin, text: "Simon Vermooten Rd & Bronkhorstspruit Rd, Willow Park Manor, Pretoria, 0184, South Africa" },
-                    { icon: Phone, text: "+2784-874-4120" },
+                    { icon: Phone, text: "+27 71 837 0432" },
                     { icon: Mail, text: "tiisomabogwane81@gmail.com" },
                   ].map(({ icon: Icon, text }) => (
                     <div key={text} className="flex items-center gap-3">
