@@ -34,7 +34,7 @@ export default function Footer() {
               </p>
               <div className="footer-social">
                 <a
-                  href="https://wa.me/27848744120"
+                  href="https://wa.me/27718370432"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link whatsapp"
@@ -99,7 +99,7 @@ export default function Footer() {
                   <Phone size={16} className="contact-icon" />
                   <div className="contact-text">
                     <span className="contact-label">Phone</span>
-                    <a href="tel:+27848744120" className="contact-value contact-link">+27 84 874 4120</a>
+                    <a href="tel:+27718370432" className="contact-value contact-link">+27 71 837 0432</a>
                   </div>
                 </div>
                 <div className="contact-item">
