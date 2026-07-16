@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Navbar";
@@ -7,11 +7,12 @@ import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 
 export const metadata: Metadata = {
-  title: "Nexora Technologies | Premium Software Solutions",
-  description: "Transforming digital experiences through cutting-edge technology and exceptional user experiences.",
+  title: "Nexora Technologies | Enterprise Software & Digital Transformation",
+  description: "Engineering intelligent digital experiences for modern businesses. Secure, scalable and AI-powered solutions that accelerate digital transformation.",
+  keywords: "software development, digital transformation, IT consulting, web development, AI solutions, South Africa",
   icons: {
     icon: "/photos/favicon.ico",
     apple: "/photos/apple-touch-icon.png",
@@ -25,24 +26,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         <Toaster
           position="top-center"
           toastOptions={{
             duration: 5000,
             style: {
-              background: 'rgba(10, 22, 40, 0.95)',
-              color: '#fff',
-              border: '1px solid rgba(0, 212, 255, 0.3)',
-              backdropFilter: 'blur(20px)',
-              padding: '16px 24px',
-              borderRadius: '12px',
+              background: "rgba(7, 21, 38, 0.97)",
+              color: "#fff",
+              border: "1px solid rgba(0, 180, 255, 0.3)",
+              backdropFilter: "blur(20px)",
+              padding: "16px 24px",
+              borderRadius: "12px",
             },
             success: {
-              iconTheme: { primary: '#00d4ff', secondary: '#0a1628' },
+              iconTheme: { primary: "#00B4FF", secondary: "#071526" },
             },
             error: {
-              iconTheme: { primary: '#ef4444', secondary: '#0a1628' },
+              iconTheme: { primary: "#ef4444", secondary: "#071526" },
             },
           }}
         />
