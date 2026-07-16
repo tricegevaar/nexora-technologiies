@@ -210,7 +210,7 @@ export default function Navbar() {
                     Book Consultation
                   </Link>
                   <div className="text-center mt-4">
-                    <p className="text-white/40 text-xs">tiisomabogwane81@gmail.com</p>
+                    <p className="text-white/40 text-xs">nexoratechnologiies@gmail.com</p>
                   </div>
                 </motion.div>
               </div>

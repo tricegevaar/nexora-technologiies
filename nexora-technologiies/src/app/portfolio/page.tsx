@@ -9,46 +9,46 @@ const categories = ["All", "Web", "Mobile", "Cloud", "AI"];
 
 const projects = [
   {
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop&crop=center",
-    title: "E-Commerce Platform", category: "Web",
-    desc: "Redesigned platform with 45% sales increase and 60% faster loading.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=350&fit=crop",
+    title: "Enterprise CRM Platform", category: "Web",
+    desc: "Redesigned CRM platform with 45% sales increase and 60% faster loading.",
     tags: ["React", "Node.js", "MongoDB"],
-    results: [{ value: "45%", label: "Sales" }, { value: "60%", label: "Speed" }, { value: "99.9%", label: "Uptime" }],
+    results: [{ value: "45%", label: "Sales Growth" }, { value: "60%", label: "Speed" }, { value: "99.9%", label: "Uptime" }],
   },
   {
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop&crop=center",
-    title: "Fitness App", category: "Mobile",
-    desc: "Cross-platform app with real-time sync and ML recommendations.",
-    tags: ["React Native", "Firebase", "ML"],
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=350&fit=crop",
+    title: "AI Fitness App", category: "Mobile",
+    desc: "Cross-platform app with real-time sync and ML-powered recommendations.",
+    tags: ["React Native", "Firebase", "TensorFlow"],
     results: [{ value: "50K+", label: "Downloads" }, { value: "4.8★", label: "Rating" }, { value: "100K+", label: "Users" }],
   },
   {
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop&crop=center",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=350&fit=crop",
     title: "Cloud Migration", category: "Cloud",
-    desc: "AWS migration with zero downtime and infrastructure automation.",
+    desc: "AWS migration with zero downtime and full infrastructure automation.",
     tags: ["AWS", "Docker", "Kubernetes"],
     results: [{ value: "40%", label: "Cost Cut" }, { value: "0", label: "Downtime" }, { value: "5x", label: "Scale" }],
   },
   {
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=350&fit=crop",
     title: "Analytics Dashboard", category: "Web",
-    desc: "Real-time dashboard processing 1M+ data points daily.",
+    desc: "Real-time dashboard processing 1M+ data points daily with 200ms response.",
     tags: ["Vue.js", "D3.js", "Python"],
     results: [{ value: "1M+", label: "Data/Day" }, { value: "200ms", label: "Response" }, { value: "30+", label: "Reports" }],
   },
   {
-    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=250&fit=crop&crop=center",
-    title: "AI Automation", category: "AI",
-    desc: "ML algorithms automating processes with 95% accuracy.",
+    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=600&h=350&fit=crop",
+    title: "AI Process Automation", category: "AI",
+    desc: "ML algorithms automating business processes with 95% accuracy.",
     tags: ["Python", "TensorFlow", "NLP"],
     results: [{ value: "20hrs", label: "Saved/Wk" }, { value: "95%", label: "Accuracy" }, { value: "3x", label: "Output" }],
   },
   {
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop&crop=center",
-    title: "Security Audit", category: "Web",
-    desc: "Enterprise security with encryption and compliance frameworks.",
-    tags: ["Cybersecurity", "GDPR", "ISO"],
-    results: [{ value: "100%", label: "Compliant" }, { value: "0", label: "Vulns" }, { value: "ISO", label: "Certified" }],
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=350&fit=crop",
+    title: "Security & Compliance", category: "Web",
+    desc: "Enterprise-grade security with encryption and regulatory compliance.",
+    tags: ["Cybersecurity", "GDPR", "ISO 27001"],
+    results: [{ value: "100%", label: "Compliant" }, { value: "0", label: "Vulnerabilities" }, { value: "ISO", label: "Certified" }],
   },
 ];
 
@@ -59,83 +59,61 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px" }}>
-        {/* Background */}
+      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px", background: "var(--dark-bg)" }}>
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/photos/portBg.jpg')" }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(2, 6, 23, 0.9), rgba(18, 40, 59, 0.7))" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #05070C 0%, #071526 60%, #05070C 100%)" }} />
+          <motion.div animate={{ opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 8, repeat: Infinity }} className="absolute" style={{ top: "5%", left: "5%", width: "50%", height: "60%", background: "radial-gradient(ellipse, rgba(11,77,255,0.15) 0%, transparent 70%)", filter: "blur(50px)" }} />
+          <motion.div animate={{ opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 10, repeat: Infinity, delay: 2 }} className="absolute" style={{ bottom: "10%", right: "5%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(0,180,255,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(0,180,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,255,0.025) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         </div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }} />
-        </div>
-
-        <div className="container relative z-10">
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8 }}
-            >
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
-                style={{ fontFamily: "'Playfair Display', serif", textAlign: "center" }}
-              >
-                Transforming <span className="gradient-text">Ideas</span>
-                <br />Into Reality
-              </motion.h1>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-white text-center mx-auto"
-                style={{ 
-                  marginTop: "1.2rem", 
-                  fontSize: "1.1rem", 
-                  lineHeight: "1.7",
-                  padding: "0 20px",
-                  textAlign: "center",
-                  fontWeight: "400"
-                }}
-              >
-                Explore our collection of successful projects that have revolutionized businesses, enhanced user experiences and delivered measurable results across various industries.
-              </motion.p>
+        <div className="container relative z-10 text-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="inline-flex items-center gap-2 mb-8" style={{ background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.2)", padding: "6px 16px", borderRadius: "50px" }}>
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1DE9FF", boxShadow: "0 0 8px #1DE9FF", display: "inline-block" }} />
+              <span style={{ color: "#1DE9FF", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Case Studies</span>
             </motion.div>
-          </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
+              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", fontWeight: 800, color: "white", lineHeight: 1.1, marginBottom: "24px", letterSpacing: "-0.02em" }}
+            >
+              Transforming <span className="gradient-text">Ideas</span>
+              <br />Into Real Results
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}
+              style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "rgba(183,195,208,0.8)", maxWidth: "600px", margin: "0 auto", fontWeight: 400 }}
+            >
+              Explore our collection of successful projects that have revolutionized businesses and delivered measurable results across industries.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
       {/* Portfolio */}
-      <section className="section-dark portfolio-mobile" style={{ padding: "100px 0" }}>
+      <section style={{ background: "var(--dark-bg)", padding: "100px 0" }}>
         <div className="container">
           {/* Filter */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="flex flex-wrap justify-center portfolio-filter-mobile"
-            style={{ gap: "12px", marginBottom: "60px" }}
+            initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.4 }}
+            className="flex flex-wrap justify-center"
+            style={{ gap: "10px", marginBottom: "60px" }}
           >
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-6 py-3 md:px-8 md:py-4 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  filter === cat
-                    ? "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white shadow-lg shadow-cyan-500/25"
-                    : "bg-white/5 text-white/70 border border-white/10 hover:border-cyan-500/50 hover:text-white hover:bg-white/10"
-                }`}
                 style={{
-                  backdropFilter: "blur(10px)",
-                  minWidth: "90px"
+                  padding: "10px 22px",
+                  borderRadius: "50px",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  border: "1px solid",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                  background: filter === cat ? "linear-gradient(135deg, #0B4DFF, #00B4FF)" : "rgba(0,180,255,0.05)",
+                  borderColor: filter === cat ? "transparent" : "rgba(0,180,255,0.15)",
+                  color: filter === cat ? "white" : "rgba(183,195,208,0.7)",
+                  boxShadow: filter === cat ? "0 4px 20px rgba(11,77,255,0.3)" : "none",
                 }}
               >
                 {cat}
@@ -149,44 +127,52 @@ export default function PortfolioPage() {
               {filtered.map((project, i) => (
                 <motion.div
                   key={project.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: i * 0.05, duration: 0.3 }}
-                  className="glass-card rounded-2xl"
-                  style={{ padding: "40px 30px", marginBottom: "30px" }}
+                  style={{
+                    background: "rgba(11,77,255,0.05)",
+                    border: "1px solid rgba(0,180,255,0.1)",
+                    borderRadius: "20px",
+                    padding: "32px",
+                    marginBottom: "20px",
+                    transition: "border-color 0.3s ease",
+                  }}
+                  whileHover={{ borderColor: "rgba(0,180,255,0.25)" }}
                 >
-                  <div className="grid lg:grid-cols-3" style={{ gap: "40px" }}>
+                  <div className="grid lg:grid-cols-3" style={{ gap: "36px" }}>
+                    {/* Image + info */}
                     <div>
-                      <div className="relative overflow-hidden rounded-lg" style={{ marginBottom: "20px", height: "200px" }}>
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute top-4 left-4">
-                          <span className="tag tag-gold text-xs">{project.category}</span>
-                        </div>
+                      <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", marginBottom: "18px", height: "180px" }}>
+                        <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,7,12,0.7) 0%, transparent 60%)" }} />
+                        <span style={{ position: "absolute", top: "12px", left: "12px", background: "rgba(11,77,255,0.85)", color: "#1DE9FF", border: "1px solid rgba(0,180,255,0.4)", borderRadius: "6px", padding: "3px 10px", fontSize: "0.72rem", fontWeight: 700 }}>
+                          {project.category}
+                        </span>
                       </div>
-                      <h3 className="text-lg font-semibold text-white" style={{ marginBottom: "15px" }}>{project.title}</h3>
-                      <p className="text-white/45 text-sm">{project.desc}</p>
+                      <h3 style={{ color: "white", fontWeight: 600, fontSize: "1rem", marginBottom: "8px" }}>{project.title}</h3>
+                      <p style={{ color: "rgba(183,195,208,0.55)", fontSize: "0.85rem", lineHeight: 1.6 }}>{project.desc}</p>
                     </div>
 
+                    {/* Tech */}
                     <div className="flex flex-col justify-center">
-                      <span className="text-white/30 text-xs uppercase" style={{ marginBottom: "15px" }}>Tech</span>
-                      <div className="flex flex-wrap" style={{ gap: "10px" }}>
-                        {project.tags.map((tag) => <span key={tag} className="tag">{tag}</span>)}
+                      <span style={{ color: "rgba(183,195,208,0.35)", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "14px", display: "block" }}>Technologies</span>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                        {project.tags.map((tag) => (
+                          <span key={tag} style={{ background: "rgba(0,180,255,0.07)", color: "#00B4FF", border: "1px solid rgba(0,180,255,0.15)", borderRadius: "50px", padding: "5px 12px", fontSize: "0.8rem", fontWeight: 500 }}>
+                            {tag}
+                          </span>
+                        ))}
                       </div>
                     </div>
 
+                    {/* Results */}
                     <div className="flex flex-col justify-center portfolio-results">
-                      <span className="text-white/30 text-xs uppercase" style={{ marginBottom: "15px" }}>Results</span>
-                      <div className="portfolio-results-grid" style={{ gap: "16px" }}>
+                      <span style={{ color: "rgba(183,195,208,0.35)", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "14px", display: "block" }}>Results</span>
+                      <div className="portfolio-results-grid" style={{ gap: "12px" }}>
                         {project.results.map((r) => (
-                          <div key={r.label} className="text-center portfolio-result-item">
-                            <div className="text-cyan-400 font-semibold text-lg">{r.value}</div>
-                            <div className="text-white/30 text-xs">{r.label}</div>
+                          <div key={r.label} className="portfolio-result-item" style={{ textAlign: "center" }}>
+                            <div style={{ color: "#00B4FF", fontWeight: 700, fontSize: "1.1rem" }}>{r.value}</div>
+                            <div style={{ color: "rgba(183,195,208,0.4)", fontSize: "0.72rem", marginTop: "3px" }}>{r.label}</div>
                           </div>
                         ))}
                       </div>
@@ -198,19 +184,13 @@ export default function PortfolioPage() {
           </div>
 
           {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <p className="text-white/50 mb-4 text-sm">Ready to start your project?</p>
-            <Link href="/contact" className="btn-primary inline-flex group ">
-              Get in Touch
+          <div className="text-center">
+            <p style={{ color: "rgba(183,195,208,0.4)", marginBottom: "16px", fontSize: "0.875rem" }}>Ready to become our next success story?</p>
+            <Link href="/contact" className="btn-primary inline-flex group">
+              Start Your Project
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

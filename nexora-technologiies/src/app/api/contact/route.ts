@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     // Send email
     await transporter.sendMail({
       from: `"Nexora Website" <${process.env.EMAIL_USER || "noreply@nexora.com"}>`,
-      to: "tiisomabogwane81@gmail.com",
+      to: "nexoratechnologiies@gmail.com",
       replyTo: email,
       subject: `[Nexora Contact] ${subject || "New Message"} from ${name}`,
       html: htmlContent,

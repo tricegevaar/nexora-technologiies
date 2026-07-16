@@ -12,14 +12,12 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       if (response.ok) {
         toast.success("Message sent! We'll get back to you soon.", { duration: 4000 });
         setFormData({ name: "", email: "", subject: "", message: "" });
@@ -33,208 +31,122 @@ export default function ContactPage() {
     }
   };
 
+  const contactItems = [
+    { icon: MapPin, label: "Address", value: "Willow Park Manor, Pretoria, 0184, South Africa" },
+    { icon: Phone, label: "Phone", value: "+27 84 874 4120", href: "tel:+27848744120" },
+    { icon: Mail, label: "Email", value: "nexoratechnologiies@gmail.com", href: "mailto:nexoratechnologiies@gmail.com" },
+    { icon: Clock, label: "Business Hours", value: "Mon – Fri: 9:00 AM – 5:00 PM" },
+  ];
+
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px" }}>
-        {/* Background */}
+      <section className="relative hero-mobile" style={{ padding: "160px 0 80px", minHeight: "70vh", display: "flex", alignItems: "center", background: "var(--dark-bg)", overflow: "hidden" }}>
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/photos/bg.jpg')" }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(31, 182, 255, 0.2), rgba(18, 40, 59, 0.9))" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #05070C 0%, #071526 60%, #05070C 100%)" }} />
+          <motion.div animate={{ opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 8, repeat: Infinity }} className="absolute" style={{ top: "10%", left: "10%", width: "50%", height: "60%", background: "radial-gradient(ellipse, rgba(11,77,255,0.15) 0%, transparent 70%)", filter: "blur(50px)" }} />
+          <motion.div animate={{ opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 10, repeat: Infinity, delay: 2 }} className="absolute" style={{ bottom: "10%", right: "10%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(0,180,255,0.1) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(0,180,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,255,0.025) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         </div>
-
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          <motion.div
-            animate={{ 
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-cyan-400/10 to-blue-500/10 blur-3xl"
-          />
-          <motion.div
-            animate={{ 
-              scale: [1.2, 1, 1.2],
-              rotate: [360, 180, 0]
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-gradient-to-r from-purple-400/10 to-cyan-400/10 blur-3xl"
-          />
-        </div>
-
-        <div className="container relative z-10">
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8 }}
-            >
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
-                style={{ fontFamily: "'Playfair Display', serif", textAlign: "center" }}
-              >
-                Start Your <span className="gradient-text">Digital</span>
-                <br />Journey Today
-              </motion.h1>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-white text-center mx-auto"
-                style={{ 
-                  marginTop: "1.2rem", 
-                  fontSize: "1.1rem", 
-                  lineHeight: "1.7",
-                  padding: "0 20px",
-                  textAlign: "center",
-                  fontWeight: "400"
-                }}
-              >
-                Ready to transform your business with cutting-edge technology? Get in touch with our expert team for a free consultation and discover how we can bring your vision to life.
-              </motion.p>
+        <div className="container relative z-10 text-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="inline-flex items-center gap-2 mb-8" style={{ background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.2)", padding: "6px 16px", borderRadius: "50px" }}>
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1DE9FF", boxShadow: "0 0 8px #1DE9FF", display: "inline-block" }} />
+              <span style={{ color: "#1DE9FF", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Get In Touch</span>
             </motion.div>
-          </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
+              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", fontWeight: 800, color: "white", lineHeight: 1.1, marginBottom: "24px", letterSpacing: "-0.02em" }}
+            >
+              Let&apos;s Build Something{" "}
+              <span className="gradient-text">Extraordinary</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}
+              style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "rgba(183,195,208,0.8)", maxWidth: "580px", margin: "0 auto", fontWeight: 400 }}
+            >
+              Ready to transform your business with cutting-edge technology? Get in touch for a free consultation and let&apos;s discuss how we can bring your vision to life.
+            </motion.p>
+          </motion.div>
         </div>
-
-        {/* Floating Contact Cards */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block"
-        >
-          <div className="glass-card rounded-xl p-4 w-68">
-            <div className="text-cyan-400 text-sm font-semibold mb-1">Quick Contact</div>
-            <div className="text-white/80 text-sm">tiisomabogwane81@gmail.com</div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block"
-        >
-          <div className="glass-card rounded-xl p-4 w-48">
-            <div className="text-cyan-400 text-sm font-semibold mb-1">Office Hours</div>
-            <div className="text-white/80 text-sm">Mon-Fri: 9AM-5PM</div>
-          </div>
-        </motion.div>
       </section>
 
-      {/* Form Section */}
-      <section className="section-dark" style={{ padding: "100px 0" }}>
+      {/* Form + Info */}
+      <section style={{ background: "var(--dark-bg)", padding: "100px 0" }}>
         <div className="container">
           <div className="grid lg:grid-cols-5" style={{ gap: "40px" }}>
+
             {/* Form */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
+              initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1, duration: 0.5 }}
               className="lg:col-span-3"
             >
-              <div className="glass-card rounded-2xl" style={{ padding: "40px 30px" }}>
-                <h2 className="text-lg font-semibold text-white" style={{ marginBottom: "25px" }}>Send a message</h2>
+              <div style={{ background: "rgba(11,77,255,0.05)", border: "1px solid rgba(0,180,255,0.12)", borderRadius: "20px", padding: "40px 32px" }}>
+                <h2 style={{ color: "white", fontWeight: 600, fontSize: "1.2rem", marginBottom: "28px" }}>Send a Message</h2>
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <div className="grid md:grid-cols-2" style={{ gap: "20px" }}>
                     <div>
-                      <label className="block text-white/60 text-sm mb-2">Name *</label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="form-input"
-                        placeholder="Your name"
-                      />
+                      <label style={{ display: "block", color: "rgba(183,195,208,0.6)", fontSize: "0.85rem", marginBottom: "8px" }}>Name *</label>
+                      <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="form-input" placeholder="Your name" />
                     </div>
                     <div>
-                      <label className="block text-white/60 text-sm mb-2">Email *</label>
-                      <input
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="form-input"
-                        placeholder="you@example.com"
-                      />
+                      <label style={{ display: "block", color: "rgba(183,195,208,0.6)", fontSize: "0.85rem", marginBottom: "8px" }}>Email *</label>
+                      <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="form-input" placeholder="you@company.com" />
                     </div>
                   </div>
-
                   <div>
-                    <label className="block text-white/60 text-sm mb-2">Subject</label>
-                    <input
-                      type="text"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="form-input"
-                      placeholder="Optional"
-                    />
+                    <label style={{ display: "block", color: "rgba(183,195,208,0.6)", fontSize: "0.85rem", marginBottom: "8px" }}>Subject</label>
+                    <input type="text" value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} className="form-input" placeholder="How can we help?" />
                   </div>
-
                   <div>
-                    <label className="block text-white/60 text-sm mb-2">Message *</label>
-                    <textarea
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="form-input resize-none"
-                      placeholder="Tell us about your project..."
-                    />
+                    <label style={{ display: "block", color: "rgba(183,195,208,0.6)", fontSize: "0.85rem", marginBottom: "8px" }}>Message *</label>
+                    <textarea required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="form-input resize-none" placeholder="Tell us about your project..." />
                   </div>
-
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="btn-primary w-full justify-center disabled:opacity-50"
-                  >
+                  <button type="submit" disabled={isLoading} className="btn-primary w-full justify-center disabled:opacity-50" style={{ fontSize: "1rem", padding: "16px" }}>
                     {isLoading ? <><Loader2 size={16} className="animate-spin" /> Sending...</> : <><Send size={16} /> Send Message</>}
                   </button>
                 </form>
               </div>
             </motion.div>
 
-            {/* Info */}
+            {/* Contact Info */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
+              initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
               className="lg:col-span-2"
               style={{ display: "flex", flexDirection: "column", gap: "20px" }}
             >
-              <div className="glass-card rounded-2xl" style={{ padding: "40px 30px" }}>
-                <h3 className="text-white font-semibold" style={{ marginBottom: "25px" }}>Contact Info</h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                  {[
-                    { icon: MapPin, text: "Simon Vermooten Rd & Bronkhorstspruit Rd, Willow Park Manor, Pretoria, 0184, South Africa" },
-                    { icon: Phone, text: "+27 71 837 0432" },
-                    { icon: Mail, text: "tiisomabogwane81@gmail.com" },
-                  ].map(({ icon: Icon, text }) => (
-                    <div key={text} className="flex items-center gap-3">
-                      <div className="icon-box-sm w-9 h-9">
-                        <Icon size={16} className="text-cyan-400" />
+              {/* Info Card */}
+              <div style={{ background: "rgba(11,77,255,0.05)", border: "1px solid rgba(0,180,255,0.12)", borderRadius: "20px", padding: "32px" }}>
+                <h3 style={{ color: "white", fontWeight: 600, fontSize: "1.1rem", marginBottom: "28px" }}>Contact Information</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                  {contactItems.map(({ icon: Icon, label, value, href }) => (
+                    <div key={label} style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+                      <div style={{ width: "40px", height: "40px", minWidth: "40px", borderRadius: "10px", background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <Icon size={16} style={{ color: "#00B4FF" }} />
                       </div>
-                      <span className="text-white/60 text-sm">{text}</span>
+                      <div>
+                        <p style={{ color: "rgba(183,195,208,0.45)", fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "4px" }}>{label}</p>
+                        {href ? (
+                          <a href={href} style={{ color: "rgba(183,195,208,0.8)", fontSize: "0.875rem", lineHeight: 1.5, textDecoration: "none", transition: "color 0.3s ease" }}
+                            onMouseEnter={(e) => { e.currentTarget.style.color = "#00B4FF"; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(183,195,208,0.8)"; }}
+                          >{value}</a>
+                        ) : (
+                          <p style={{ color: "rgba(183,195,208,0.8)", fontSize: "0.875rem", lineHeight: 1.5, margin: 0 }}>{value}</p>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="glass-card rounded-2xl" style={{ padding: "40px 30px" }}>
-                <div className="flex items-center" style={{ gap: "20px", marginBottom: "15px" }}>
-                  <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/15 flex items-center justify-center">
-                    <Clock size={16} className="text-amber-400" />
-                  </div>
-                  <h3 className="text-white font-semibold">Office Hours</h3>
-                </div>
-                <p className="text-white/50 text-sm">Mon — Fri: 9:00 AM — 5:00 PM</p>
-                <p className="text-white/30 text-xs mt-1">Response within 24 hours</p>
+              {/* Quick response card */}
+              <div style={{ background: "linear-gradient(135deg, rgba(11,77,255,0.12), rgba(0,180,255,0.06))", border: "1px solid rgba(0,180,255,0.2)", borderRadius: "20px", padding: "28px", textAlign: "center" }}>
+                <div style={{ fontSize: "1.8rem", marginBottom: "8px" }}>⚡</div>
+                <h4 style={{ color: "white", fontWeight: 600, fontSize: "0.95rem", marginBottom: "6px" }}>Fast Response</h4>
+                <p style={{ color: "rgba(183,195,208,0.55)", fontSize: "0.82rem", lineHeight: 1.5 }}>
+                  We typically respond within 24 hours on business days.
+                </p>
               </div>
             </motion.div>
           </div>

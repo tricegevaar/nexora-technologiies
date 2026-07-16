@@ -12,7 +12,7 @@ const WhatsAppIcon = () => (
 
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = "27718370432";
+  const phoneNumber = "27848744120";
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hi Nexora! I'd like to discuss a project with your team.");

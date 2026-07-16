@@ -46,7 +46,7 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", gap: "10px" }}>
               {[
-                { href: "https://wa.me/27718370432", icon: <WhatsAppIcon />, color: "#25d366", label: "WhatsApp" },
+                { href: "https://wa.me/27848744120", icon: <WhatsAppIcon />, color: "#25d366", label: "WhatsApp" },
                 { href: "#", icon: <LinkedInIcon />, color: "#0077b5", label: "LinkedIn" },
                 { href: "#", icon: <FacebookIcon />, color: "#1877f2", label: "Facebook" },
               ].map(({ href, icon, color, label }) => (
@@ -113,13 +113,13 @@ export default function Footer() {
               <div className="contact-item">
                 <div className="contact-text">
                   <span className="contact-label">Phone</span>
-                  <a href="tel:+27718370432" className="contact-value contact-link">+27 71 837 0432</a>
+                  <a href="tel:+27848744120" className="contact-value contact-link">+27 84 874 4120</a>
                 </div>
               </div>
               <div className="contact-item">
                 <div className="contact-text">
                   <span className="contact-label">Email</span>
-                  <a href="mailto:tiisomabogwane81@gmail.com" className="contact-value contact-link">tiisomabogwane81@gmail.com</a>
+                  <a href="mailto:nexoratechnologiies@gmail.com" className="contact-value contact-link">nexoratechnologiies@gmail.com</a>
                 </div>
               </div>
               <div className="contact-item">
