@@ -3,44 +3,56 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
 const projects = [
-  { 
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop&crop=center",
-    title: "E-Commerce Platform", 
-    desc: "Scalable solution that increased sales by 45%.", 
-    tags: ["React", "Node.js", "MongoDB"] 
+  {
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=350&fit=crop",
+    title: "Enterprise CRM Platform",
+    category: "Web",
+    desc: "Scalable CRM solution that increased sales by 45% and cut response time by 60%.",
+    tags: ["React", "Node.js", "MongoDB"],
+    result: "+45% Revenue Growth",
   },
-  { 
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop&crop=center",
-    title: "Mobile App", 
-    desc: "Cross-platform app with 50k+ downloads.", 
-    tags: ["React Native", "Firebase"] 
+  {
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=350&fit=crop",
+    title: "AI-Powered Fitness App",
+    category: "Mobile",
+    desc: "Cross-platform app with ML recommendations. 50K+ downloads in first 6 months.",
+    tags: ["React Native", "Firebase", "TensorFlow"],
+    result: "50K+ Downloads",
   },
-  { 
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center",
-    title: "Analytics Dashboard", 
-    desc: "Real-time platform processing 1M+ data points.", 
-    tags: ["Vue.js", "Python"] 
+  {
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=350&fit=crop",
+    title: "Cloud Infrastructure Migration",
+    category: "Cloud",
+    desc: "AWS migration with zero downtime, reducing infrastructure costs by 40%.",
+    tags: ["AWS", "Docker", "Kubernetes"],
+    result: "40% Cost Reduction",
   },
-  { 
+  {
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=350&fit=crop",
+    title: "Real-Time Analytics Dashboard",
+    category: "Web",
+    desc: "Processing 1M+ data points daily with sub-200ms response times.",
+    tags: ["Vue.js", "D3.js", "Python"],
+    result: "1M+ Data Points/Day",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=600&h=350&fit=crop",
+    title: "AI Process Automation",
+    category: "AI",
+    desc: "ML algorithms automating business workflows with 95% accuracy.",
+    tags: ["Python", "TensorFlow", "NLP"],
+    result: "20hrs Saved/Week",
+  },
+  {
     image: "/photos/azure portal.webp",
-    title: "Cloud Migration", 
-    desc: "AWS migration reducing costs by 40%.", 
-    tags: ["AWS", "Docker", "Azure"] 
-  },
-  { 
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop&crop=center",
-    title: "Security Audit", 
-    desc: "Enterprise-grade security implementation.", 
-    tags: ["Cybersecurity", "Compliance"] 
-  },
-  { 
-    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=250&fit=crop&crop=center",
-    title: "AI Integration", 
-    desc: "ML automation saving 20 hours/week.", 
-    tags: ["TensorFlow", "Python"] 
+    title: "Secure Cloud Migration",
+    category: "Cloud",
+    desc: "Enterprise-grade security implementation achieving 100% compliance.",
+    tags: ["Azure", "Cybersecurity", "ISO"],
+    result: "99.9% Uptime",
   },
 ];
 
@@ -49,7 +61,7 @@ export default function Portfolio() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="portfolio" className="section-blue" style={{ padding: "100px 0" }}>
+    <section style={{ background: "var(--deep-navy)", padding: "100px 0" }}>
       <div className="container" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,39 +71,84 @@ export default function Portfolio() {
           style={{ marginBottom: "60px" }}
         >
           <h2 className="section-title">
-            Our <span className="gradient-text-static">Portfolio</span>
+            Case <span className="gradient-text-static">Studies</span>
           </h2>
           <p className="section-subtitle">
-            Showcase of our finest projects delivered to clients worldwide.
+            Real results for real businesses — explore how we&apos;ve helped clients grow.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3" style={{ gap: "30px", marginBottom: "60px" }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3" style={{ gap: "24px", marginBottom: "50px" }}>
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="glass-card rounded-2xl group"
-              style={{ padding: "40px 30px" }}
+              style={{
+                background: "rgba(11,77,255,0.05)",
+                border: "1px solid rgba(0,180,255,0.1)",
+                borderRadius: "20px",
+                overflow: "hidden",
+                transition: "all 0.4s ease",
+                cursor: "pointer",
+              }}
+              whileHover={{ borderColor: "rgba(0,180,255,0.3)", y: -6, boxShadow: "0 20px 50px rgba(11,77,255,0.15)" }}
             >
-              <div className="relative overflow-hidden rounded-lg group-hover:scale-105 transition-transform" style={{ marginBottom: "20px", height: "180px" }}>
-                <img 
-                  src={project.image} 
+              {/* Image */}
+              <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
+                <img
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,7,12,0.8) 0%, transparent 60%)" }} />
+                {/* Result badge */}
+                <div
+                  style={{
+                    position: "absolute", bottom: "12px", left: "12px",
+                    background: "rgba(11,77,255,0.9)",
+                    border: "1px solid rgba(0,180,255,0.4)",
+                    borderRadius: "8px",
+                    padding: "4px 10px",
+                    fontSize: "11px",
+                    fontWeight: 700,
+                    color: "#1DE9FF",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  {project.result}
+                </div>
               </div>
 
-              <h3 className="text-lg font-semibold text-white text-center" style={{ marginBottom: "15px" }}>{project.title}</h3>
-              <p className="text-white/45 text-sm text-center" style={{ marginBottom: "20px" }}>{project.desc}</p>
-
-              <div className="flex flex-wrap justify-center" style={{ gap: "10px" }}>
-                {project.tags.map((tag) => (
-                  <span key={tag} className="tag tag-gold">{tag}</span>
-                ))}
+              {/* Content */}
+              <div style={{ padding: "24px" }}>
+                <h3 style={{ color: "white", fontWeight: 600, fontSize: "1rem", marginBottom: "8px" }}>
+                  {project.title}
+                </h3>
+                <p style={{ color: "rgba(183,195,208,0.6)", fontSize: "0.85rem", lineHeight: 1.6, marginBottom: "16px" }}>
+                  {project.desc}
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        background: "rgba(0,180,255,0.07)",
+                        color: "#00B4FF",
+                        border: "1px solid rgba(0,180,255,0.15)",
+                        borderRadius: "50px",
+                        padding: "3px 10px",
+                        fontSize: "0.75rem",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -104,7 +161,7 @@ export default function Portfolio() {
           className="text-center"
         >
           <Link href="/portfolio" className="btn-primary inline-flex group">
-            View Full Portfolio
+            View All Case Studies
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </motion.div>
