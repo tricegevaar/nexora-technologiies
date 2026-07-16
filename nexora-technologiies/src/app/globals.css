@@ -6,29 +6,29 @@
 }
 
 :root {
-  /* New enterprise palette — extracted from the Nexora logo */
+  /* Palette — extracted from the Nexora logo: deep navy, royal blue, electric blue */
   --primary-blue: #0B4DFF;
-  --electric-blue: #00B4FF;
+  --electric-blue: #3B8EFF;
   --deep-navy: #071526;
   --dark-bg: #05070C;
-  --accent-cyan: #1DE9FF;
-  --white: #FFFFFF;
-  --soft-grey: #B7C3D0;
-  --card-bg: rgba(11, 77, 255, 0.06);
-  --border: rgba(0, 180, 255, 0.15);
-  --glow: rgba(0, 180, 255, 0.25);
+  --accent-cyan: #00C8FF;
+  --white: #F0F4FF;
+  --soft-grey: #B0C4DE;
+  --card-bg: rgba(11, 55, 180, 0.08);
+  --border: rgba(59, 142, 255, 0.14);
+  --glow: rgba(11, 77, 255, 0.22);
 
-  /* Legacy aliases for backward compat */
+  /* Legacy aliases */
   --royal-blue: #071526;
   --royal-blue-light: #0d1f3a;
-  --electric-cyan: #00B4FF;
+  --electric-cyan: #3B8EFF;
   --electric-cyan-dark: #0B4DFF;
-  --gold: #1DE9FF;
-  --silver-gray: #B7C3D0;
+  --gold: #00C8FF;
+  --silver-gray: #B0C4DE;
   --silver-gray-dark: #7E8A9A;
   --dark: #0d1f3a;
   --darker: #05070C;
-  --light: #F8FAFC;
+  --light: #F0F4FF;
 }
 
 * {
@@ -90,21 +90,21 @@ body {
   align-items: center;
   gap: 10px;
   padding: 14px 28px;
-  background: linear-gradient(135deg, #0B4DFF, #00B4FF);
+  background: linear-gradient(135deg, #0B4DFF, #0096E6);
   color: white;
   font-weight: 600;
-  font-size: 0.95rem;
-  border-radius: 12px;
+  font-size: 0.9rem;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease;
   text-decoration: none;
   box-shadow: 0 4px 20px rgba(11, 77, 255, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(11, 77, 255, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(11, 77, 255, 0.45);
 }
 
 .btn-secondary {
@@ -113,21 +113,21 @@ body {
   gap: 10px;
   padding: 14px 28px;
   background: transparent;
-  color: #00B4FF;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-radius: 12px;
-  border: 1.5px solid rgba(0, 180, 255, 0.5);
+  color: rgba(176, 196, 222, 0.85);
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(59, 142, 255, 0.3);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 180, 255, 0.08);
-  border-color: #00B4FF;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 180, 255, 0.2);
+  background: rgba(59, 142, 255, 0.08);
+  border-color: rgba(59, 142, 255, 0.6);
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* Glass Card */
@@ -280,16 +280,16 @@ body {
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, #00B4FF 0%, #1DE9FF 40%, #0B4DFF 100%);
+  background: linear-gradient(135deg, #3B8EFF 0%, #00C8FF 50%, #1FFFFF 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 5s linear infinite;
 }
 
 .gradient-text-static {
-  background: linear-gradient(90deg, #00B4FF, #1DE9FF);
+  background: linear-gradient(90deg, #3B8EFF, #00C8FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -56,12 +56,12 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-0 left-0 w-full z-50"
       style={{
-        background: isScrolled ? "rgba(5,7,12,0.95)" : "transparent",
+        background: isScrolled ? "rgba(5,7,12,0.96)" : "transparent",
         backdropFilter: isScrolled ? "blur(24px)" : "none",
-        borderBottom: isScrolled ? "1px solid rgba(0,180,255,0.08)" : "none",
-        boxShadow: isScrolled ? "0 4px 30px rgba(0,0,0,0.4)" : "none",
+        borderBottom: isScrolled ? "1px solid rgba(59,142,255,0.08)" : "none",
+        boxShadow: isScrolled ? "0 4px 30px rgba(0,0,0,0.5)" : "none",
         transition: "all 0.4s ease",
-        padding: isScrolled ? "10px 0" : "18px 0",
+        padding: isScrolled ? "8px 0" : "16px 0",
       }}
     >
       <div className="container" style={{ padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -71,10 +71,10 @@ export default function Navbar() {
           <Image
             src="/photos/nexLogo.png"
             alt="Nexora Technologies"
-            width={180}
-            height={65}
+            width={220}
+            height={80}
             priority
-            style={{ height: isScrolled ? "52px" : "64px", width: "auto", transition: "height 0.3s ease" }}
+            style={{ height: isScrolled ? "62px" : "76px", width: "auto", transition: "height 0.3s ease" }}
           />
         </Link>
 
