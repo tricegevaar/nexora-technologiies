@@ -76,44 +76,38 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px" }}>
+      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px", background: "var(--dark-bg)" }}>
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/photos/bg.jpg')" }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(18, 40, 59, 0.9), rgba(31, 182, 255, 0.4))" }} />
-        </div>
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div animate={{ y: [-15, 15, -15] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute top-20 right-10 w-20 h-20 rounded-full bg-cyan-400/10 backdrop-blur-sm" />
-          <motion.div animate={{ y: [15, -15, 15] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-20 left-10 w-16 h-16 rounded-full bg-white/5 backdrop-blur-sm" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #05070C 0%, #071526 60%, #05070C 100%)" }} />
+          <motion.div animate={{ opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 8, repeat: Infinity }} className="absolute" style={{ top: "5%", right: "5%", width: "50%", height: "60%", background: "radial-gradient(ellipse, rgba(11,77,255,0.15) 0%, transparent 70%)", filter: "blur(50px)" }} />
+          <motion.div animate={{ opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 10, repeat: Infinity, delay: 2 }} className="absolute" style={{ bottom: "10%", left: "5%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(0,180,255,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(0,180,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,255,0.025) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         </div>
         <div className="container relative z-10">
-          <div className="max-w-6xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="inline-flex items-center gap-2 mb-8" style={{ background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.2)", padding: "6px 16px", borderRadius: "50px" }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1DE9FF", boxShadow: "0 0 8px #1DE9FF", display: "inline-block" }} />
+                <span style={{ color: "#1DE9FF", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions &amp; Investment Guide</span>
+              </motion.div>
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", fontWeight: 800, color: "white", lineHeight: 1.1, marginBottom: "24px", letterSpacing: "-0.02em" }}
               >
-                Our Services &amp; <span className="gradient-text">Investment Guide</span>
+                Our Services &amp;{" "}
+                <span className="gradient-text">Investment Guide</span>
               </motion.h1>
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-white mx-auto"
-                style={{ marginTop: "1.2rem", fontSize: "1.1rem", lineHeight: "1.7", padding: "0 20px", fontWeight: "400", maxWidth: "700px" }}
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}
+                style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "rgba(183,195,208,0.8)", maxWidth: "620px", margin: "0 auto 16px", fontWeight: 400 }}
               >
-                We deliver strategic digital solutions designed to help businesses scale, streamline operations, and compete more effectively in a fast-moving digital world.
+                We deliver strategic digital solutions designed to help businesses scale, streamline operations, and compete more effectively.
               </motion.p>
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-white/50 mx-auto"
-                style={{ marginTop: "1rem", fontSize: "0.95rem", lineHeight: "1.7", padding: "0 20px", maxWidth: "650px" }}
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
+                style={{ fontSize: "0.9rem", lineHeight: 1.7, color: "rgba(183,195,208,0.5)", maxWidth: "560px", margin: "0 auto" }}
               >
-                The pricing below reflects typical starting investments. Final pricing depends on scope, complexity, integrations, timelines, and your specific business requirements.
+                Pricing reflects typical starting investments. Final pricing depends on scope, complexity, integrations, and your specific requirements.
               </motion.p>
             </motion.div>
           </div>

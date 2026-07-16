@@ -74,7 +74,7 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" className="section-dark" style={{ padding: "100px 0" }}>
+    <section id="services" style={{ background: "var(--dark-bg)", padding: "100px 0" }}>
       <div className="container" ref={ref}>
         {/* Section Header */}
         <motion.div
@@ -82,79 +82,108 @@ export default function Services() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
           className="text-center"
-          style={{ marginBottom: "20px" }}
+          style={{ marginBottom: "60px" }}
         >
           <h2 className="section-title">
-            Our Services & <span className="gradient-text-static">Investment Guide</span>
+            Our Services &amp; <span className="gradient-text-static">Investment Guide</span>
           </h2>
           <p className="section-subtitle" style={{ marginBottom: "16px" }}>
-            We deliver strategic digital solutions designed to help businesses scale, streamline operations, and compete more effectively in a fast-moving digital world.
+            We deliver strategic digital solutions designed to help businesses scale, streamline operations, and compete more effectively.
           </p>
-          <p className="text-white/50 text-sm" style={{ maxWidth: "700px", margin: "0 auto 60px", lineHeight: "1.7" }}>
-            The pricing below reflects typical starting investments for our most requested services. Final pricing depends on scope, complexity, integrations, timelines, and your specific business requirements.
+          <p style={{ color: "rgba(183,195,208,0.45)", fontSize: "0.875rem", maxWidth: "700px", margin: "0 auto", lineHeight: 1.7 }}>
+            Pricing below reflects typical starting investments. Final pricing depends on scope, complexity, integrations, and your specific requirements.
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3" style={{ gap: "30px", marginBottom: "60px" }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3" style={{ gap: "24px", marginBottom: "50px" }}>
           {services.map((service, i) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="service-card glass-card rounded-2xl group flex flex-col"
-              style={{ padding: "36px 28px" }}
+              style={{
+                background: "rgba(11,77,255,0.05)",
+                border: "1px solid rgba(0,180,255,0.1)",
+                borderRadius: "20px",
+                padding: "32px 26px",
+                display: "flex",
+                flexDirection: "column",
+                position: "relative",
+                overflow: "hidden",
+                transition: "all 0.4s ease",
+              }}
+              whileHover={{ borderColor: "rgba(0,180,255,0.3)", y: -6, boxShadow: "0 20px 50px rgba(11,77,255,0.12)" }}
             >
+              {/* Top accent line on hover */}
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, #0B4DFF, #00B4FF)", transform: "scaleX(0)", transformOrigin: "left", transition: "transform 0.4s ease" }} className="service-top-line" />
+
               {/* Icon */}
-              <div className="flex justify-center" style={{ marginBottom: "20px" }}>
-                <div className="icon-box group-hover:scale-105 transition-transform duration-300">
-                  <service.icon size={22} className="text-white" />
+              <div style={{ marginBottom: "20px" }}>
+                <div style={{ width: "52px", height: "52px", background: "rgba(0,180,255,0.1)", border: "1px solid rgba(0,180,255,0.2)", borderRadius: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <service.icon size={22} style={{ color: "#00B4FF" }} />
                 </div>
               </div>
 
-              {/* Title */}
-              <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors text-center" style={{ marginBottom: "12px" }}>
+              <h3 style={{ color: "white", fontWeight: 600, fontSize: "1rem", marginBottom: "10px" }}>
                 {service.subtitle}
               </h3>
 
-              {/* Description */}
-              <p className="text-white/60 text-sm leading-relaxed text-center" style={{ marginBottom: "20px" }}>
+              <p style={{ color: "rgba(183,195,208,0.6)", fontSize: "0.85rem", lineHeight: 1.6, marginBottom: "20px" }}>
                 {service.desc}
               </p>
 
               {/* Features */}
               <div style={{ marginBottom: "20px" }}>
-                <p className="text-white/30 text-xs uppercase tracking-wider" style={{ marginBottom: "12px" }}>What&apos;s Included</p>
-                <ul style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <p style={{ color: "rgba(183,195,208,0.35)", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "10px" }}>
+                  What&apos;s Included
+                </p>
+                <ul style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
                   {service.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-white/60 text-sm">
-                      <CheckCircle size={14} className="text-cyan-400 flex-shrink-0 mt-0.5" />
-                      {f}
+                    <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <CheckCircle size={13} style={{ color: "#00B4FF", flexShrink: 0, marginTop: "2px" }} />
+                      <span style={{ color: "rgba(183,195,208,0.65)", fontSize: "0.82rem" }}>{f}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Ideal For */}
-              <div className="service-ideal" style={{ marginBottom: "20px" }}>
-                <p className="text-white/30 text-xs uppercase tracking-wider" style={{ marginBottom: "8px" }}>Ideal For</p>
-                <p className="text-white/50 text-xs leading-relaxed">{service.ideal}</p>
+              <div style={{ marginBottom: "20px" }}>
+                <p style={{ color: "rgba(183,195,208,0.35)", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "6px" }}>
+                  Ideal For
+                </p>
+                <p style={{ color: "rgba(183,195,208,0.5)", fontSize: "0.8rem", lineHeight: 1.5 }}>{service.ideal}</p>
               </div>
 
-              {/* Price */}
-              <div className="service-price-block" style={{ marginTop: "auto", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-                <p className="text-white/30 text-xs uppercase tracking-wider" style={{ marginBottom: "6px" }}>Starting Investment</p>
-                <p className="text-cyan-400 font-semibold text-base" style={{ marginBottom: service.priceNote ? "4px" : "16px" }}>{service.price}</p>
+              {/* Price + CTA */}
+              <div style={{ marginTop: "auto", paddingTop: "20px", borderTop: "1px solid rgba(0,180,255,0.08)" }}>
+                <p style={{ color: "rgba(183,195,208,0.35)", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px" }}>
+                  Starting Investment
+                </p>
+                <p style={{ color: "#00B4FF", fontWeight: 700, fontSize: "1rem", marginBottom: service.priceNote ? "4px" : "14px" }}>
+                  {service.price}
+                </p>
                 {service.priceNote && (
-                  <p className="text-white/40 text-xs" style={{ marginBottom: "16px" }}>or {service.priceNote}</p>
+                  <p style={{ color: "rgba(183,195,208,0.4)", fontSize: "0.75rem", marginBottom: "14px" }}>or {service.priceNote}</p>
                 )}
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 group/btn service-cta-btn"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: "6px",
+                    color: "#00B4FF", fontSize: "0.85rem", fontWeight: 600,
+                    padding: "10px 16px", borderRadius: "8px",
+                    border: "1px solid rgba(0,180,255,0.2)",
+                    background: "rgba(0,180,255,0.05)",
+                    textDecoration: "none", width: "100%", justifyContent: "center",
+                    transition: "all 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(0,180,255,0.12)"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.4)"; e.currentTarget.style.color = "white"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(0,180,255,0.05)"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.2)"; e.currentTarget.style.color = "#00B4FF"; }}
                 >
                   {service.cta}
-                  <ArrowRight size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                  <ArrowRight size={14} />
                 </Link>
               </div>
             </motion.div>
@@ -166,26 +195,33 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="service-disclaimer"
+          style={{
+            background: "rgba(11,77,255,0.06)",
+            border: "1px solid rgba(0,180,255,0.15)",
+            borderRadius: "20px",
+            padding: "36px 40px",
+          }}
         >
-          <div className="service-disclaimer-inner">
-            <div style={{ marginBottom: "16px" }}>
-              <h4 className="text-white font-semibold" style={{ fontSize: "1.1rem", marginBottom: "10px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "40px", flexWrap: "wrap" }}>
+            <div>
+              <h4 style={{ color: "white", fontWeight: 600, fontSize: "1.05rem", marginBottom: "10px" }}>
                 Important Pricing Note
               </h4>
-              <p className="text-white/60 text-sm leading-relaxed" style={{ marginBottom: "12px" }}>
-                All listed prices are starting investments and are intended as a general guide. Final pricing may vary depending on:
+              <p style={{ color: "rgba(183,195,208,0.6)", fontSize: "0.875rem", lineHeight: 1.6, marginBottom: "14px" }}>
+                All prices are starting investments and serve as a general guide. Final pricing varies based on:
               </p>
-              <div className="disclaimer-tags">
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "14px" }}>
                 {["Project Scope", "Number of Features", "Design Requirements", "Integrations", "Timelines", "Technical Complexity"].map((item) => (
-                  <span key={item} className="disclaimer-tag">{item}</span>
+                  <span key={item} style={{ background: "rgba(0,180,255,0.07)", color: "rgba(183,195,208,0.65)", border: "1px solid rgba(0,180,255,0.12)", padding: "4px 12px", borderRadius: "50px", fontSize: "0.78rem" }}>
+                    {item}
+                  </span>
                 ))}
               </div>
-              <p className="text-white/50 text-sm" style={{ marginTop: "14px" }}>
-                For a detailed and accurate quotation, we recommend booking a consultation with our team.
+              <p style={{ color: "rgba(183,195,208,0.5)", fontSize: "0.875rem" }}>
+                For an accurate quotation, book a consultation with our team.
               </p>
             </div>
-            <Link href="/contact" className="btn-primary inline-flex group">
+            <Link href="/contact" className="btn-primary inline-flex group" style={{ whiteSpace: "nowrap", alignSelf: "flex-start" }}>
               Request a Custom Quote
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>

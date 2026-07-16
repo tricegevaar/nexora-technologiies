@@ -39,79 +39,36 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px" }}>
-        {/* Background */}
+      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px", background: "var(--dark-bg)" }}>
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/photos/bg.jpg')" }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(18, 40, 59, 0.8), rgba(31, 182, 255, 0.3))" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #05070C 0%, #071526 60%, #05070C 100%)" }} />
+          <motion.div animate={{ opacity: [0.2, 0.45, 0.2] }} transition={{ duration: 8, repeat: Infinity }} className="absolute" style={{ top: "10%", left: "5%", width: "50%", height: "60%", background: "radial-gradient(ellipse, rgba(11,77,255,0.15) 0%, transparent 70%)", filter: "blur(50px)" }} />
+          <motion.div animate={{ opacity: [0.15, 0.35, 0.15] }} transition={{ duration: 10, repeat: Infinity, delay: 2 }} className="absolute" style={{ bottom: "10%", right: "5%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(0,180,255,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(0,180,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,255,0.025) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         </div>
-
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            animate={{ y: [-20, 20, -20] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 left-10 w-32 h-32 rounded-full bg-cyan-400/10 backdrop-blur-sm"
-          />
-          <motion.div
-            animate={{ y: [20, -20, 20] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-20 right-10 w-24 h-24 rounded-full bg-white/5 backdrop-blur-sm"
-          />
-        </div>
-
         <div className="container relative z-10">
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8 }}
-            >
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
-                style={{ fontFamily: "'Playfair Display', serif", textAlign: "center" }}
+          <div className="max-w-5xl mx-auto text-center">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="inline-flex items-center gap-2 mb-8" style={{ background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.2)", padding: "6px 16px", borderRadius: "50px" }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1DE9FF", boxShadow: "0 0 8px #1DE9FF", display: "inline-block" }} />
+                <span style={{ color: "#1DE9FF", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>About Nexora Technologies</span>
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", fontWeight: 800, color: "white", lineHeight: 1.1, marginBottom: "24px", letterSpacing: "-0.02em" }}
               >
-                Innovating <span className="gradient-text">Tomorrow's</span>
+                Innovating <span className="gradient-text">Tomorrow&apos;s</span>
                 <br />Digital Solutions
               </motion.h1>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-white text-center mx-auto"
-                style={{ 
-                  marginTop: "1.2rem",
-                  fontSize: "1.1rem", 
-                  lineHeight: "1.7",
-                  padding: "0 20px",
-                  textAlign: "center",
-                  fontWeight: "400"
-                }}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}
+                style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "rgba(183,195,208,0.8)", maxWidth: "600px", margin: "0 auto", fontWeight: 400 }}
               >
                 We are a passionate team of digital innovators, crafting cutting-edge solutions that transform businesses and drive sustainable growth in the digital age.
               </motion.p>
             </motion.div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60"
-        >
-          <span className="text-sm">Discover Our Story</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-transparent rounded-full"
-          />
-        </motion.div>
       </section>
 
       {/* Story */}
