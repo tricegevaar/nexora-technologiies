@@ -69,7 +69,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" style={{ flexShrink: 0 }}>
           <Image
-            src="/photos/nexoraLogo.png"
+            src="/photos/nexLogo.png"
             alt="Nexora Technologies"
             width={180}
             height={65}
@@ -215,7 +215,7 @@ export default function Navbar() {
             >
               {/* Header */}
               <div style={{ padding: "20px 24px", borderBottom: "1px solid rgba(0,180,255,0.08)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <Image src="/photos/nexoraLogo.png" alt="Nexora" width={130} height={48} style={{ height: "44px", width: "auto" }} />
+                <Image src="/photos/nexLogo.png" alt="Nexora" width={130} height={48} style={{ height: "44px", width: "auto" }} />
                 <button onClick={() => setIsMobileOpen(false)} style={{ background: "none", border: "none", color: "rgba(183,195,208,0.5)", cursor: "pointer", padding: "4px" }}>
                   <X size={20} />
                 </button>

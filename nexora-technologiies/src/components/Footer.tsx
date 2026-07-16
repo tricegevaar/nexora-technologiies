@@ -39,7 +39,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <div style={{ marginBottom: "24px" }}>
-              <Image src="/photos/nexoraLogo.png" alt="Nexora Technologies" width={180} height={65} style={{ height: "65px", width: "auto", filter: "brightness(1.1)" }} />
+              <Image src="/photos/nexLogo.png" alt="Nexora Technologies" width={180} height={65} style={{ height: "65px", width: "auto", filter: "brightness(1.05)" }} />
             </div>
             <p style={{ color: "rgba(183,195,208,0.65)", fontSize: "14px", lineHeight: 1.7, marginBottom: "28px" }}>
               Engineering intelligent digital experiences for modern businesses. Secure, scalable and AI-powered solutions.
