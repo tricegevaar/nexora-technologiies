@@ -137,7 +137,7 @@ export default function Testimonials() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="flex items-center justify-center gap-4" style={{ marginTop: "32px" }}>
             <button
               onClick={prev}
               style={{

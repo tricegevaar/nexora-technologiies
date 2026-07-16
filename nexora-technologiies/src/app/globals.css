@@ -416,6 +416,19 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', Georgia, serif;
   line-height: 1.1;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: balance;
+}
+
+.section-title {
+  text-wrap: balance;
+}
+
+.section-subtitle {
+  text-wrap: balance;
 }
 
 /* Professional Footer Styles */
@@ -889,14 +902,17 @@ h1, h2, h3, h4, h5, h6 {
   
   /* Hero Section - Tablet/Mobile */
   .hero-section {
-    padding: 140px 0 60px !important;
-    min-height: 90vh !important;
+    height: 100dvh !important;
+    min-height: 580px !important;
+    padding: 0 !important;
   }
   
-  .hero-section .flex {
-    flex-direction: column !important;
-    gap: 30px !important;
-    align-items: center !important;
+  .hero-section .container {
+    padding-top: 100px !important;
+  }
+  
+  .hero-section .grid {
+    grid-template-columns: 1fr !important;
   }
   
   .hero-content {
@@ -1209,8 +1225,9 @@ h1, h2, h3, h4, h5, h6 {
   
   /* Hero Section - Small Mobile */
   .hero-section {
-    padding: 120px 0 50px !important;
-    min-height: 85vh !important;
+    height: 100dvh !important;
+    min-height: 560px !important;
+    padding: 0 !important;
   }
   
   .hero-section .container {
