@@ -13,10 +13,7 @@ const clients = [
   { name: "Mabogwane Metal", logo: "/photos/7.png" },
   { name: "Propciti", logo: "/photos/8.png" },
   { name: "Anequine", logo: "/photos/9.png" },
-  { name: "Alphadot X", logo: "/photos/10.png" }
-  
-
-
+  { name: "Alphadot X", logo: "/photos/10.png" },
 ];
 
 export default function Clients() {
@@ -24,20 +21,26 @@ export default function Clients() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="section-dark" style={{ padding: "100px 0" }}>
+    <section style={{ background: "var(--dark-bg)", padding: "80px 0" }}>
       <div className="container" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
           className="text-center"
-          style={{ marginBottom: "60px" }}
+          style={{ marginBottom: "50px" }}
         >
-          <h2 className="section-title">
-            Trusted by <span className="gradient-text-static">Industry Leaders</span>
-          </h2>
-          <p className="section-subtitle">
-            Partnering with forward-thinking companies worldwide to deliver exceptional results.
+          <p
+            style={{
+              color: "rgba(183,195,208,0.5)",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              marginBottom: "8px",
+            }}
+          >
+            Trusted by Innovative Companies
           </p>
         </motion.div>
 
@@ -45,23 +48,51 @@ export default function Clients() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8"
-          style={{ gap: "30px" }}
+          className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10"
+          style={{ gap: "16px", alignItems: "center" }}
         >
           {clients.map((client, i) => (
             <motion.div
               key={client.name}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.1 * i, duration: 0.3 }}
-              className="glass-card rounded-xl flex items-center justify-center hover:border-cyan-500/20 hover:bg-white/[0.04] transition-all cursor-pointer group overflow-hidden"
-              style={{ padding: "10px", height: "120px" }}
+              transition={{ delay: 0.05 * i, duration: 0.3 }}
+              style={{
+                background: "rgba(11,77,255,0.04)",
+                border: "1px solid rgba(0,180,255,0.08)",
+                borderRadius: "12px",
+                padding: "12px",
+                height: "80px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+              }}
+              whileHover={{
+                borderColor: "rgba(0,180,255,0.25)",
+                background: "rgba(11,77,255,0.08)",
+              }}
             >
-              <img 
-                src={client.logo} 
+              <img
+                src={client.logo}
                 alt={client.name}
-                className="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                style={{ width: "auto", height: "100px", borderRadius: "8px" }}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "55px",
+                  objectFit: "contain",
+                  opacity: 0.7,
+                  filter: "grayscale(30%)",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = "1";
+                  e.currentTarget.style.filter = "grayscale(0%)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = "0.7";
+                  e.currentTarget.style.filter = "grayscale(30%)";
+                }}
               />
             </motion.div>
           ))}

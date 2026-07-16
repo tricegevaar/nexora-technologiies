@@ -6,19 +6,19 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    content: "Nexora delivered an outstanding product that exceeded our expectations. The team was professional and communicative at every step.",
+    content: "Nexora delivered an outstanding product that exceeded our expectations. The team was professional, communicative and technically excellent at every step.",
     author: "Mark",
     role: "COO, GrowthLab SA",
     initials: "M",
   },
   {
-    content: "Their expertise helped us scale our platform rapidly. Highly recommend their development and consulting services.",
+    content: "Their expertise helped us scale our platform rapidly. The technical depth and strategic thinking from Nexora's team was genuinely impressive.",
     author: "Twice Seopela",
     role: "COO, Tshwane South Tvet College",
     initials: "TS",
   },
   {
-    content: "Great collaboration and timely delivery. The final product improved our UX and conversions significantly.",
+    content: "Great collaboration and timely delivery. The final product dramatically improved our UX and conversion metrics significantly.",
     author: "Tebogo Madileng",
     role: "CEO, Snape & Alphadot X",
     initials: "TM",
@@ -30,11 +30,11 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [current, setCurrent] = useState(0);
 
-  const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const next = () => setCurrent((p) => (p + 1) % testimonials.length);
+  const prev = () => setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section id="testimonials" className="section-blue" style={{ padding: "100px 0" }}>
+    <section style={{ background: "var(--dark-bg)", padding: "100px 0" }}>
       <div className="container max-w-4xl" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,31 +56,102 @@ export default function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <div className="glass-card rounded-2xl text-center relative" style={{ padding: "40px 30px" }}>
-            <div className="absolute top-6 left-6 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-              <Quote size={18} className="text-cyan-400" />
+          <div
+            style={{
+              background: "rgba(11,77,255,0.06)",
+              border: "1px solid rgba(0,180,255,0.15)",
+              borderRadius: "24px",
+              padding: "48px 40px",
+              position: "relative",
+              textAlign: "center",
+            }}
+          >
+            {/* Quote icon */}
+            <div
+              style={{
+                position: "absolute",
+                top: "24px",
+                left: "28px",
+                width: "40px",
+                height: "40px",
+                background: "rgba(0,180,255,0.1)",
+                border: "1px solid rgba(0,180,255,0.2)",
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Quote size={16} style={{ color: "#00B4FF" }} />
             </div>
 
-            <div className="pt-6">
-              <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 italic">
-                &ldquo;{testimonials[current].content}&rdquo;
-              </p>
+            <motion.p
+              key={current}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              style={{
+                fontSize: "1.15rem",
+                color: "rgba(255,255,255,0.8)",
+                lineHeight: 1.8,
+                fontStyle: "italic",
+                marginBottom: "36px",
+                paddingTop: "16px",
+              }}
+            >
+              &ldquo;{testimonials[current].content}&rdquo;
+            </motion.p>
 
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-white font-semibold text-sm mb-3">
-                  {testimonials[current].initials}
-                </div>
-                <h4 className="text-white font-semibold">{testimonials[current].author}</h4>
-                <p className="text-white/40 text-sm">{testimonials[current].role}</p>
+            <motion.div
+              key={`author-${current}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="flex flex-col items-center"
+            >
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  background: "linear-gradient(135deg, #0B4DFF, #00B4FF)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "white",
+                  fontWeight: 700,
+                  fontSize: "0.9rem",
+                  marginBottom: "12px",
+                  boxShadow: "0 4px 20px rgba(11,77,255,0.4)",
+                }}
+              >
+                {testimonials[current].initials}
               </div>
-            </div>
+              <h4 style={{ color: "white", fontWeight: 600, fontSize: "1rem" }}>
+                {testimonials[current].author}
+              </h4>
+              <p style={{ color: "rgba(183,195,208,0.5)", fontSize: "0.85rem", marginTop: "4px" }}>
+                {testimonials[current].role}
+              </p>
+            </motion.div>
           </div>
 
           {/* Navigation */}
           <div className="flex items-center justify-center gap-4 mt-6">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+              style={{
+                width: "40px", height: "40px",
+                borderRadius: "50%",
+                background: "rgba(11,77,255,0.08)",
+                border: "1px solid rgba(0,180,255,0.15)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                color: "rgba(183,195,208,0.6)",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#00B4FF"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.4)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(183,195,208,0.6)"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.15)"; }}
             >
               <ChevronLeft size={18} />
             </button>
@@ -90,16 +161,33 @@ export default function Testimonials() {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all ${
-                    i === current ? "w-6 bg-cyan-400" : "w-2 bg-white/20 hover:bg-white/30"
-                  }`}
+                  style={{
+                    height: "8px",
+                    width: i === current ? "24px" : "8px",
+                    borderRadius: "4px",
+                    background: i === current ? "#00B4FF" : "rgba(255,255,255,0.15)",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                  }}
                 />
               ))}
             </div>
 
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+              style={{
+                width: "40px", height: "40px",
+                borderRadius: "50%",
+                background: "rgba(11,77,255,0.08)",
+                border: "1px solid rgba(0,180,255,0.15)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                color: "rgba(183,195,208,0.6)",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#00B4FF"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.4)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(183,195,208,0.6)"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.15)"; }}
             >
               <ChevronRight size={18} />
             </button>
