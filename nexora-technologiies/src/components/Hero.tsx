@@ -56,7 +56,7 @@ export default function Hero() {
             >
               Engineering Intelligent{" "}
               <br className="hidden lg:block" />
-              Digital Experiences{" "}
+              Solutions{" "}
               <br className="hidden lg:block" />
               for{" "}
               <span style={{

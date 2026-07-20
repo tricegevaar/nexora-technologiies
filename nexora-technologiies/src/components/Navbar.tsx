@@ -71,10 +71,10 @@ export default function Navbar() {
           <Image
             src="/photos/nexLogo.png"
             alt="Nexora Technologies"
-            width={220}
-            height={80}
+            width={260}
+            height={96}
             priority
-            style={{ height: isScrolled ? "62px" : "76px", width: "auto", transition: "height 0.3s ease" }}
+            style={{ height: isScrolled ? "80px" : "96px", width: "auto", transition: "height 0.3s ease" }}
           />
         </Link>
 
