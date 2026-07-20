@@ -48,6 +48,7 @@ export default function Hero() {
                 fontSize: "clamp(2.1rem, 3.8vw, 3.5rem)",
                 fontWeight: 800,
                 lineHeight: 1.12,
+                marginTop: "18px",
                 marginBottom: "22px",
                 letterSpacing: "-0.025em",
                 color: "#F0F4FF",

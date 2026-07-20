@@ -194,8 +194,8 @@ export default function Navbar() {
           </Link>
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden"
-            style={{ padding: "10px", background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.18)", borderRadius: "10px", color: "white", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s ease" }}
+            className="lg:hidden inline-flex items-center justify-center"
+            style={{ padding: "10px", background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.18)", borderRadius: "10px", color: "white", cursor: "pointer", transition: "all 0.2s ease" }}
           >
             {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
