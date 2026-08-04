@@ -70,42 +70,67 @@ const services = [
 ];
 
 export default function ServicesPage() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const gridRef = useRef(null);
+  const gridInView = useInView(gridRef, { once: true, margin: "-80px" });
 
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px", background: "var(--dark-bg)" }}>
-        <div className="absolute inset-0">
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #05070C 0%, #071526 60%, #05070C 100%)" }} />
-          <motion.div animate={{ opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 8, repeat: Infinity }} className="absolute" style={{ top: "5%", right: "5%", width: "50%", height: "60%", background: "radial-gradient(ellipse, rgba(11,77,255,0.15) 0%, transparent 70%)", filter: "blur(50px)" }} />
-          <motion.div animate={{ opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 10, repeat: Infinity, delay: 2 }} className="absolute" style={{ bottom: "10%", left: "5%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(0,180,255,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
-          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(0,180,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,255,0.025) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+      <section
+        style={{
+          padding: "160px 0 90px",
+          minHeight: "65vh",
+          display: "flex",
+          alignItems: "center",
+          background: "#0A0A0B",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            animate={{ opacity: [0.15, 0.28, 0.15] }}
+            transition={{ duration: 9, repeat: Infinity }}
+            style={{ position: "absolute", top: "5%", right: "5%", width: "50%", height: "65%", background: "radial-gradient(ellipse, rgba(201,168,76,0.1) 0%, transparent 70%)", filter: "blur(60px)" }}
+          />
+          <motion.div
+            animate={{ opacity: [0.08, 0.16, 0.08] }}
+            transition={{ duration: 12, repeat: Infinity, delay: 2 }}
+            style={{ position: "absolute", bottom: "5%", left: "5%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 70%)", filter: "blur(70px)" }}
+          />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(201,168,76,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.015) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
         </div>
+
         <div className="container relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="inline-flex items-center gap-2 mb-8" style={{ background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.2)", padding: "6px 16px", borderRadius: "50px" }}>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1DE9FF", boxShadow: "0 0 8px #1DE9FF", display: "inline-block" }} />
-                <span style={{ color: "#1DE9FF", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions &amp; Investment Guide</span>
+          <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.22)", padding: "5px 14px", borderRadius: "50px", marginBottom: "28px" }}
+              >
+                <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#C9A84C", boxShadow: "0 0 6px #C9A84C", display: "inline-block" }} />
+                <span style={{ color: "#C9A84C", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>Solutions &amp; Investment Guide</span>
               </motion.div>
+
               <motion.h1
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
-                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", fontWeight: 800, color: "white", lineHeight: 1.1, marginBottom: "24px", letterSpacing: "-0.02em" }}
+                initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
+                style={{ fontSize: "clamp(2.2rem, 5vw, 3.8rem)", fontWeight: 800, color: "#F4F0E8", lineHeight: 1.1, marginBottom: "22px", letterSpacing: "-0.03em", fontFamily: "'Inter', sans-serif" }}
               >
                 Our Services &amp;{" "}
-                <span className="gradient-text">Investment Guide</span>
+                <span style={{ background: "linear-gradient(135deg, #C9A84C, #F0C060)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                  Investment Guide
+                </span>
               </motion.h1>
+
               <motion.p
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}
-                style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "rgba(183,195,208,0.8)", maxWidth: "620px", margin: "0 auto 16px", fontWeight: 400 }}
+                initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.7 }}
+                style={{ fontSize: "1rem", lineHeight: 1.8, color: "rgba(220,210,190,0.6)", maxWidth: "560px", margin: "0 auto 12px" }}
               >
                 We deliver strategic digital solutions designed to help businesses scale, streamline operations, and compete more effectively.
               </motion.p>
               <motion.p
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
-                style={{ fontSize: "0.9rem", lineHeight: 1.7, color: "rgba(183,195,208,0.5)", maxWidth: "560px", margin: "0 auto" }}
+                initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.7 }}
+                style={{ fontSize: "0.85rem", lineHeight: 1.7, color: "rgba(220,210,190,0.4)", maxWidth: "520px", margin: "0 auto" }}
               >
                 Pricing reflects typical starting investments. Final pricing depends on scope, complexity, integrations, and your specific requirements.
               </motion.p>
@@ -115,58 +140,71 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="section-dark" style={{ padding: "100px 0" }} ref={ref}>
+      <section style={{ background: "#111114", padding: "100px 0" }} ref={gridRef}>
         <div className="container">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3" style={{ gap: "30px", marginBottom: "60px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px", marginBottom: "48px" }}>
             {services.map((service, i) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                animate={gridInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="service-card glass-card rounded-2xl group flex flex-col"
-                style={{ padding: "36px 28px" }}
+                style={{
+                  background: "#16161A",
+                  border: "1px solid rgba(201,168,76,0.1)",
+                  borderRadius: "16px",
+                  padding: "28px 24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  position: "relative",
+                  overflow: "hidden",
+                  transition: "all 0.35s ease",
+                }}
+                whileHover={{ borderColor: "rgba(201,168,76,0.3)", y: -5, boxShadow: "0 20px 50px rgba(0,0,0,0.4)" }}
               >
-                <div className="flex justify-center" style={{ marginBottom: "20px" }}>
-                  <div className="icon-box group-hover:scale-105 transition-transform duration-300">
-                    <service.icon size={22} className="text-white" />
+                {/* Top accent */}
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, #A07830, #C9A84C, #F0C060)", transform: "scaleX(0)", transformOrigin: "left", transition: "transform 0.4s ease" }}
+                  className="service-top-line"
+                />
+
+                <div style={{ marginBottom: "18px" }}>
+                  <div style={{ width: "48px", height: "48px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.18)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <service.icon size={20} style={{ color: "#C9A84C" }} />
                   </div>
                 </div>
 
-                <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors text-center" style={{ marginBottom: "12px" }}>
+                <h3 style={{ color: "#F4F0E8", fontWeight: 600, fontSize: "0.95rem", marginBottom: "10px", fontFamily: "'Inter', sans-serif" }}>
                   {service.subtitle}
                 </h3>
-
-                <p className="text-white/60 text-sm leading-relaxed text-center" style={{ marginBottom: "20px" }}>
+                <p style={{ color: "rgba(220,210,190,0.55)", fontSize: "0.82rem", lineHeight: 1.65, marginBottom: "20px" }}>
                   {service.desc}
                 </p>
 
-                <div style={{ marginBottom: "20px" }}>
-                  <p className="text-white/30 text-xs uppercase tracking-wider" style={{ marginBottom: "12px" }}>What&apos;s Included</p>
-                  <ul style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <div style={{ marginBottom: "18px" }}>
+                  <p style={{ color: "rgba(220,210,190,0.3)", fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "10px" }}>What&apos;s Included</p>
+                  <ul style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                     {service.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-white/60 text-sm">
-                        <CheckCircle size={14} className="text-cyan-400 flex-shrink-0 mt-0.5" />
-                        {f}
+                      <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                        <CheckCircle size={12} style={{ color: "#C9A84C", flexShrink: 0, marginTop: "2px" }} />
+                        <span style={{ color: "rgba(220,210,190,0.55)", fontSize: "0.8rem" }}>{f}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div style={{ marginBottom: "20px" }}>
-                  <p className="text-white/30 text-xs uppercase tracking-wider" style={{ marginBottom: "8px" }}>Ideal For</p>
-                  <p className="text-white/50 text-xs leading-relaxed">{service.ideal}</p>
+                <div style={{ marginBottom: "18px" }}>
+                  <p style={{ color: "rgba(220,210,190,0.3)", fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "6px" }}>Ideal For</p>
+                  <p style={{ color: "rgba(220,210,190,0.45)", fontSize: "0.78rem", lineHeight: 1.55 }}>{service.ideal}</p>
                 </div>
 
-                <div style={{ marginTop: "auto", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-                  <p className="text-white/30 text-xs uppercase tracking-wider" style={{ marginBottom: "6px" }}>Starting Investment</p>
-                  <p className="text-cyan-400 font-semibold text-base" style={{ marginBottom: service.priceNote ? "4px" : "16px" }}>{service.price}</p>
+                <div style={{ marginTop: "auto", paddingTop: "18px", borderTop: "1px solid rgba(201,168,76,0.08)" }}>
+                  <p style={{ color: "rgba(220,210,190,0.3)", fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px" }}>Starting Investment</p>
+                  <p style={{ color: "#C9A84C", fontWeight: 700, fontSize: "0.95rem", marginBottom: service.priceNote ? "4px" : "14px" }}>{service.price}</p>
                   {service.priceNote && (
-                    <p className="text-white/40 text-xs" style={{ marginBottom: "16px" }}>or {service.priceNote}</p>
+                    <p style={{ color: "rgba(220,210,190,0.35)", fontSize: "0.74rem", marginBottom: "14px" }}>or {service.priceNote}</p>
                   )}
-                  <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 group/btn service-cta-btn">
-                    {service.cta}
-                    <ArrowRight size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                  <Link href="/contact" className="service-cta-btn">
+                    {service.cta} <ArrowRight size={13} />
                   </Link>
                 </div>
               </motion.div>
@@ -176,16 +214,14 @@ export default function ServicesPage() {
           {/* Disclaimer */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={gridInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.5, duration: 0.5 }}
             className="service-disclaimer"
           >
             <div className="service-disclaimer-inner">
               <div>
-                <h4 className="text-white font-semibold" style={{ fontSize: "1.1rem", marginBottom: "10px" }}>
-                  Important Pricing Note
-                </h4>
-                <p className="text-white/60 text-sm leading-relaxed" style={{ marginBottom: "12px" }}>
+                <h4 style={{ color: "#F4F0E8", fontWeight: 600, fontSize: "1rem", marginBottom: "10px" }}>Important Pricing Note</h4>
+                <p style={{ color: "rgba(220,210,190,0.55)", fontSize: "0.85rem", lineHeight: 1.6, marginBottom: "12px" }}>
                   All listed prices are starting investments and are intended as a general guide. Final pricing may vary depending on:
                 </p>
                 <div className="disclaimer-tags">
@@ -193,13 +229,12 @@ export default function ServicesPage() {
                     <span key={item} className="disclaimer-tag">{item}</span>
                   ))}
                 </div>
-                <p className="text-white/50 text-sm" style={{ marginTop: "14px" }}>
-                  For a detailed and accurate quotation, we recommend booking a consultation with our team.
+                <p style={{ color: "rgba(220,210,190,0.4)", fontSize: "0.85rem", marginTop: "14px" }}>
+                  For a detailed and accurate quotation, book a consultation with our team.
                 </p>
               </div>
-              <Link href="/contact" className="btn-primary inline-flex group" style={{ whiteSpace: "nowrap", alignSelf: "flex-start" }}>
-                Request a Custom Quote
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <Link href="/contact" className="btn-primary" style={{ whiteSpace: "nowrap", alignSelf: "flex-start" }}>
+                Request a Custom Quote <ArrowRight size={15} />
               </Link>
             </div>
           </motion.div>

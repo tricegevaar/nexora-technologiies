@@ -2,20 +2,38 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Rocket, ShieldCheck, Cpu, Globe } from "lucide-react";
+import { Lightbulb, Award, ShieldCheck, TrendingUp, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-const features = [
-  { icon: Rocket, title: "Innovation First", desc: "We stay ahead of technology trends to deliver future-proof, enterprise-grade solutions." },
-  { icon: ShieldCheck, title: "Secure by Design", desc: "Security is built into every layer of our architecture from the ground up." },
-  { icon: Cpu, title: "AI-Powered Solutions", desc: "We leverage AI and automation to drive operational efficiency and business growth." },
-  { icon: Globe, title: "Cloud-First Approach", desc: "Scalable cloud infrastructure designed for performance, availability and scale." },
+const values = [
+  {
+    icon: Lightbulb,
+    title: "Innovation",
+    desc: "We turn ideas into intelligent solutions.",
+  },
+  {
+    icon: Award,
+    title: "Excellence",
+    desc: "We deliver quality that exceeds expectations.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Integrity",
+    desc: "We build trust through transparency and honesty.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Impact",
+    desc: "We create solutions that drive real business value.",
+  },
 ];
 
 const stats = [
-  { value: 120, label: "Projects Delivered", suffix: "+" },
-  { value: 98, label: "Client Satisfaction", suffix: "%" },
-  { value: 12, label: "Enterprise Clients", suffix: "+" },
-  { value: 5, label: "Years Experience", suffix: "+" },
+  { value: 50, label: "Projects Delivered", suffix: "+" },
+  { value: 30, label: "Happy Clients", suffix: "+" },
+  { value: 99, label: "Uptime Achieved", suffix: ".9%" },
+  { value: 4, label: "Years of Excellence", suffix: "+" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -44,115 +62,135 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" style={{ background: "var(--deep-navy)", padding: "100px 0" }}>
+    <section id="about" style={{ background: "#111114", padding: "100px 0" }}>
       <div className="container" ref={ref}>
 
-        {/* Section label */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-          style={{ marginBottom: "70px" }}
-        >
-          <div
-            className="inline-flex items-center gap-2 mb-5"
-            style={{
-              background: "rgba(0,180,255,0.08)",
-              border: "1px solid rgba(0,180,255,0.2)",
-              padding: "6px 16px",
-              borderRadius: "50px",
-            }}
-          >
-            <span style={{ color: "#00B4FF", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              Our Core Solutions
-            </span>
-          </div>
-          <h2 className="section-title" style={{ marginBottom: "16px" }}>
-            Technology solutions built<br />for the{" "}
-            <span className="gradient-text">future</span>
-          </h2>
-          <p className="section-subtitle" style={{ maxWidth: "560px" }}>
-            We combine innovation, strategy and engineering to deliver powerful digital solutions that solve real business problems.
-          </p>
-        </motion.div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
 
-        <div className="grid lg:grid-cols-2 items-center" style={{ gap: "80px" }}>
-          {/* Features grid */}
-          <div className="grid grid-cols-2" style={{ gap: "24px" }}>
-            {features.map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                style={{
-                  background: "rgba(11,77,255,0.06)",
-                  border: "1px solid rgba(0,180,255,0.12)",
-                  borderRadius: "16px",
-                  padding: "28px 24px",
-                  transition: "all 0.3s ease",
-                }}
-                whileHover={{ borderColor: "rgba(0,180,255,0.3)", y: -4 }}
-              >
-                <div
-                  style={{
-                    width: "44px", height: "44px",
-                    background: "rgba(0,180,255,0.1)",
-                    border: "1px solid rgba(0,180,255,0.2)",
-                    borderRadius: "12px",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    marginBottom: "16px",
-                  }}
-                >
-                  <feature.icon size={20} style={{ color: "#00B4FF" }} />
-                </div>
-                <h4 style={{ color: "white", fontWeight: 600, fontSize: "0.95rem", marginBottom: "8px" }}>
-                  {feature.title}
-                </h4>
-                <p style={{ color: "rgba(183,195,208,0.65)", fontSize: "0.82rem", lineHeight: 1.6 }}>
-                  {feature.desc}
-                </p>
-                <div
-                  className="mt-3 flex items-center gap-1 text-xs font-medium"
-                  style={{ color: "#00B4FF", cursor: "pointer" }}
-                >
-                  Learn more →
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Stats */}
+          {/* Left — text */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: -24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="grid grid-cols-2" style={{ gap: "24px" }}>
-              {stats.map((stat, i) => (
+            {/* Section label */}
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.2)", padding: "5px 14px", borderRadius: "50px", marginBottom: "24px" }}>
+              <span style={{ color: "#C9A84C", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>Who We Are</span>
+            </div>
+
+            <h2
+              style={{
+                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
+                fontWeight: 800,
+                color: "#F4F0E8",
+                lineHeight: 1.15,
+                marginBottom: "20px",
+                letterSpacing: "-0.02em",
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
+              A Pretoria-Based Tech Partner
+              <br />with a{" "}
+              <span style={{
+                background: "linear-gradient(135deg, #C9A84C, #F0C060)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
+                Global Mindset
+              </span>
+            </h2>
+
+            <p style={{ color: "rgba(220,210,190,0.6)", fontSize: "0.9rem", lineHeight: 1.8, marginBottom: "32px", maxWidth: "480px" }}>
+              We are a team of passionate innovators, engineers, and problem solvers delivering high-performance digital solutions that help businesses thrive in a connected world.
+            </p>
+
+            {/* Values 2x2 grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "36px" }}>
+              {values.map((v, i) => (
                 <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  key={v.title}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
+                  transition={{ delay: 0.2 + i * 0.08, duration: 0.4 }}
                   style={{
-                    background: "rgba(11,77,255,0.06)",
-                    border: "1px solid rgba(0,180,255,0.12)",
-                    borderRadius: "16px",
-                    padding: "32px 24px",
-                    textAlign: "center",
+                    padding: "18px",
+                    background: "rgba(201,168,76,0.04)",
+                    border: "1px solid rgba(201,168,76,0.1)",
+                    borderRadius: "12px",
+                    transition: "all 0.3s ease",
                   }}
+                  whileHover={{ borderColor: "rgba(201,168,76,0.25)", backgroundColor: "rgba(201,168,76,0.07)" }}
                 >
-                  <div style={{ fontSize: "2.4rem", fontWeight: 800, color: "#00B4FF", lineHeight: 1, marginBottom: "8px" }}>
-                    <Counter value={stat.value} suffix={stat.suffix} />
+                  <div style={{ marginBottom: "8px" }}>
+                    <v.icon size={18} style={{ color: "#C9A84C" }} />
                   </div>
-                  <div style={{ color: "rgba(183,195,208,0.7)", fontSize: "0.85rem", fontWeight: 500 }}>
-                    {stat.label}
-                  </div>
+                  <h4 style={{ color: "#F4F0E8", fontWeight: 600, fontSize: "0.875rem", marginBottom: "4px" }}>{v.title}</h4>
+                  <p style={{ color: "rgba(220,210,190,0.5)", fontSize: "0.78rem", lineHeight: 1.5 }}>{v.desc}</p>
                 </motion.div>
               ))}
             </div>
+
+            <Link
+              href="/about"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "8px",
+                padding: "12px 24px", borderRadius: "8px",
+                border: "1px solid rgba(201,168,76,0.35)",
+                color: "#C9A84C", fontSize: "0.875rem", fontWeight: 600,
+                textDecoration: "none", background: "transparent",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(201,168,76,0.08)"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.6)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.35)"; }}
+            >
+              Learn More About Us <ArrowRight size={14} />
+            </Link>
+          </motion.div>
+
+          {/* Right — image + badge */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            style={{ position: "relative" }}
+          >
+            {/* Main image */}
+            <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden", height: "420px" }}>
+              <Image
+                src="/photos/portBg.jpg"
+                alt="Pretoria Tech Hub"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+              {/* Overlay */}
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,11,0.6) 0%, rgba(10,10,11,0.1) 60%)" }} />
+              {/* Gold border accent */}
+              <div style={{ position: "absolute", inset: 0, borderRadius: "16px", border: "1px solid rgba(201,168,76,0.15)" }} />
+            </div>
+
+            {/* Location badge */}
+            <motion.div
+              animate={{ y: [-4, 4, -4] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              style={{
+                position: "absolute", bottom: "24px", left: "24px",
+                background: "rgba(17,17,20,0.92)",
+                border: "1px solid rgba(201,168,76,0.25)",
+                borderRadius: "10px",
+                padding: "12px 16px",
+                backdropFilter: "blur(12px)",
+                display: "flex", alignItems: "center", gap: "10px",
+              }}
+            >
+              <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <span style={{ fontSize: "14px" }}>📍</span>
+              </div>
+              <div>
+                <p style={{ color: "#F4F0E8", fontSize: "0.8rem", fontWeight: 600, margin: 0 }}>Proudly based in</p>
+                <p style={{ color: "#C9A84C", fontSize: "0.75rem", fontWeight: 500, margin: 0 }}>Pretoria, South Africa</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

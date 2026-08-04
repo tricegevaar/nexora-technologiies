@@ -73,7 +73,7 @@ export default function WhatsAppWidget() {
           >
             <div
               style={{
-                background: "linear-gradient(160deg, #0f1e2e 0%, #12283b 100%)",
+                background: "linear-gradient(160deg, #111114 0%, #16161A 100%)",
                 border: "1px solid rgba(37, 211, 102, 0.15)",
                 borderRadius: "20px",
                 overflow: "hidden",
