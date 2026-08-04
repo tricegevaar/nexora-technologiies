@@ -4,214 +4,203 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
 
-const serviceNumbers = [
-  { num: "01", label: "Strategy &", label2: "Consulting" },
-  { num: "02", label: "Design &", label2: "Development" },
-  { num: "03", label: "Cloud &", label2: "DevOps" },
-  { num: "04", label: "Data &", label2: "AI Solutions" },
-];
-
-const partners = [
-  { name: "seda", style: { color: "#C9A84C", fontWeight: 800, fontSize: "1rem", letterSpacing: "0.05em" } },
-  { name: "Microsoft", style: { color: "rgba(220,210,190,0.6)", fontWeight: 600, fontSize: "0.8rem" }, tag: "Partner" },
-  { name: "aws", style: { color: "rgba(220,210,190,0.6)", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.04em" } },
-  { name: "Zoho", style: { color: "rgba(220,210,190,0.6)", fontWeight: 700, fontSize: "0.9rem" }, tag: "Authorized" },
-  { name: "aws", style: { color: "rgba(220,210,190,0.6)", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.04em" }, tag: "partner network" },
-];
-
 export default function Hero() {
   return (
     <section
       className="hero-section relative flex items-center overflow-hidden"
-      style={{ height: "100dvh", minHeight: "640px", background: "#0A0A0B" }}
+      style={{ height: "100dvh", minHeight: "600px", background: "#05070C" }}
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Gold glow top-left */}
         <motion.div
-          animate={{ opacity: [0.18, 0.35, 0.18] }}
+          animate={{ opacity: [0.25, 0.5, 0.25] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          style={{ position: "absolute", top: "-10%", left: "-5%", width: "55%", height: "70%", background: "radial-gradient(ellipse, rgba(201,168,76,0.12) 0%, transparent 70%)", filter: "blur(60px)" }}
+          style={{ position: "absolute", top: "-15%", left: "-10%", width: "60%", height: "80%", background: "radial-gradient(ellipse, rgba(11,55,180,0.22) 0%, transparent 70%)", filter: "blur(50px)" }}
         />
-        {/* Subtle warm glow right */}
         <motion.div
-          animate={{ opacity: [0.1, 0.22, 0.1] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          style={{ position: "absolute", top: "20%", right: "-5%", width: "45%", height: "60%", background: "radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%)", filter: "blur(70px)" }}
+          animate={{ opacity: [0.15, 0.35, 0.15] }}
+          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          style={{ position: "absolute", top: "30%", right: "-8%", width: "50%", height: "65%", background: "radial-gradient(ellipse, rgba(0,150,220,0.15) 0%, transparent 70%)", filter: "blur(55px)" }}
         />
-        {/* Very subtle grid */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(201,168,76,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.018) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
-        {/* Bottom fade */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "180px", background: "linear-gradient(to top, #0A0A0B, transparent)" }} />
+        <motion.div
+          animate={{ opacity: [0.1, 0.25, 0.1] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          style={{ position: "absolute", bottom: "-5%", left: "25%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(0,120,200,0.1) 0%, transparent 70%)", filter: "blur(65px)" }}
+        />
+        {/* Subtle grid */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(0,150,220,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,150,220,0.025) 1px, transparent 1px)", backgroundSize: "70px 70px" }} />
       </div>
 
       <div className="container relative z-10 w-full">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "40px", alignItems: "center" }}>
+        <div className="grid lg:grid-cols-2 items-center" style={{ gap: "60px" }}>
 
-          {/* Left Content */}
+          {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            style={{ maxWidth: "680px" }}
           >
-            {/* Label pill */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.2)", padding: "5px 14px", borderRadius: "50px", marginBottom: "28px" }}
-            >
-              <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#C9A84C", boxShadow: "0 0 6px #C9A84C", display: "inline-block" }} />
-              <span style={{ color: "#C9A84C", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                Digital Innovation. Real Impact.
-              </span>
-            </motion.div>
-
-            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.18, duration: 0.8 }}
+              transition={{ delay: 0.15, duration: 0.8 }}
               style={{
-                fontSize: "clamp(2.4rem, 4.5vw, 3.8rem)",
+                fontSize: "clamp(2.1rem, 3.8vw, 3.5rem)",
                 fontWeight: 800,
-                lineHeight: 1.1,
+                lineHeight: 1.12,
+                marginTop: "18px",
                 marginBottom: "22px",
-                letterSpacing: "-0.03em",
-                color: "#F4F0E8",
+                letterSpacing: "-0.025em",
+                color: "#F0F4FF",
                 fontFamily: "'Inter', sans-serif",
               }}
             >
-              Building Intelligent
-              <br />Solutions That Drive
-              <br />Business{" "}
+              Engineering Intelligent{" "}
+              <br className="hidden lg:block" />
+              Solutions{" "}
+              <br className="hidden lg:block" />
+              for{" "}
               <span style={{
-                background: "linear-gradient(135deg, #C9A84C 0%, #F0C060 50%, #C9A84C 100%)",
+                background: "linear-gradient(135deg, #3B8EFF 0%, #00C8FF 50%, #1FFFFF 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}>
-                Forward
+                Modern Businesses
               </span>
             </motion.h1>
 
-            {/* Sub */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
+              transition={{ delay: 0.28, duration: 0.7 }}
               style={{
-                fontSize: "0.95rem",
+                fontSize: "1rem",
                 lineHeight: 1.75,
-                color: "rgba(220,210,190,0.6)",
+                color: "rgba(176,196,222,0.75)",
                 marginBottom: "36px",
-                maxWidth: "500px",
+                maxWidth: "480px",
+                fontWeight: 400,
               }}
             >
-              Nexora Technologies empowers businesses with custom software, cloud, and data solutions that accelerate growth and create sustainable value.
+              Secure, scalable and AI-powered solutions that accelerate digital
+              transformation, improve operational efficiency and drive measurable
+              business growth.
             </motion.p>
 
-            {/* Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.42, duration: 0.7 }}
-              style={{ display: "flex", flexWrap: "wrap", gap: "14px", marginBottom: "52px" }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+              style={{ display: "flex", flexWrap: "wrap", gap: "14px" }}
             >
               <Link
-                href="/services"
+                href="/contact"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "8px",
-                  padding: "13px 26px",
-                  background: "transparent",
-                  color: "#C9A84C", fontWeight: 600, fontSize: "0.875rem",
-                  borderRadius: "8px", textDecoration: "none",
-                  border: "1px solid #C9A84C",
+                  padding: "14px 28px",
+                  background: "linear-gradient(135deg, #0B4DFF, #0096E6)",
+                  color: "white", fontWeight: 600, fontSize: "0.9rem",
+                  borderRadius: "10px", textDecoration: "none",
+                  boxShadow: "0 4px 24px rgba(11,77,255,0.35)",
                   transition: "all 0.3s ease",
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#C9A84C";
-                  e.currentTarget.style.color = "#0A0A0B";
-                  e.currentTarget.style.boxShadow = "0 6px 24px rgba(201,168,76,0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#C9A84C";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(11,77,255,0.5)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 24px rgba(11,77,255,0.35)"; }}
               >
-                Explore Our Services <ArrowRight size={15} />
+                Start Your Project <ArrowRight size={16} />
               </Link>
               <Link
                 href="/portfolio"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "8px",
-                  padding: "13px 26px",
+                  padding: "14px 28px",
                   background: "transparent",
-                  color: "rgba(220,210,190,0.7)", fontWeight: 500, fontSize: "0.875rem",
-                  borderRadius: "8px", textDecoration: "none",
-                  border: "1px solid rgba(220,210,190,0.2)",
+                  color: "rgba(176,196,222,0.85)", fontWeight: 500, fontSize: "0.9rem",
+                  borderRadius: "10px", textDecoration: "none",
+                  border: "1px solid rgba(59,142,255,0.3)",
                   transition: "all 0.3s ease",
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(220,210,190,0.45)";
-                  e.currentTarget.style.color = "#F4F0E8";
-                  e.currentTarget.style.background = "rgba(220,210,190,0.05)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(220,210,190,0.2)";
-                  e.currentTarget.style.color = "rgba(220,210,190,0.7)";
-                  e.currentTarget.style.background = "transparent";
-                }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(59,142,255,0.6)"; e.currentTarget.style.color = "white"; e.currentTarget.style.background = "rgba(59,142,255,0.08)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(59,142,255,0.3)"; e.currentTarget.style.color = "rgba(176,196,222,0.85)"; e.currentTarget.style.background = "transparent"; }}
               >
                 <Play size={13} /> View Our Work
               </Link>
             </motion.div>
-
-            {/* Partners strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
-            >
-              <p style={{ color: "rgba(220,210,190,0.3)", fontSize: "0.68rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "14px" }}>
-                Trusted by Innovative Companies
-              </p>
-              <div style={{ display: "flex", alignItems: "center", gap: "28px", flexWrap: "wrap" }}>
-                {partners.map((p, i) => (
-                  <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                    <span style={p.style}>{p.name}</span>
-                    {p.tag && <span style={{ color: "rgba(220,210,190,0.35)", fontSize: "0.6rem", letterSpacing: "0.06em", marginTop: "1px" }}>{p.tag}</span>}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
 
-          {/* Right — numbered service list */}
+          {/* Right — Dashboard */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 35 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.7 }}
-            className="hidden lg:flex flex-col"
-            style={{ gap: "20px", paddingLeft: "40px", borderLeft: "1px solid rgba(201,168,76,0.1)" }}
+            transition={{ delay: 0.35, duration: 0.9 }}
+            className="relative hidden lg:flex items-center justify-center"
+            style={{ height: "380px" }}
           >
-            {serviceNumbers.map((s, i) => (
-              <motion.div
-                key={s.num}
-                initial={{ opacity: 0, x: 12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.55 + i * 0.1 }}
-                style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}
-              >
-                <span style={{ color: "#C9A84C", fontSize: "0.72rem", fontWeight: 700, lineHeight: 1, paddingTop: "2px", minWidth: "20px" }}>{s.num}</span>
-                <div>
-                  <p style={{ color: "rgba(220,210,190,0.55)", fontSize: "0.75rem", lineHeight: 1.3, fontWeight: 500 }}>{s.label}</p>
-                  <p style={{ color: "rgba(220,210,190,0.55)", fontSize: "0.75rem", lineHeight: 1.3, fontWeight: 500 }}>{s.label2}</p>
+            <motion.div
+              animate={{ y: [-7, 7, -7] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              style={{
+                background: "linear-gradient(145deg, rgba(11,55,180,0.14) 0%, rgba(0,120,200,0.07) 100%)",
+                border: "1px solid rgba(59,142,255,0.2)",
+                borderRadius: "20px",
+                padding: "22px",
+                width: "300px",
+                backdropFilter: "blur(20px)",
+                boxShadow: "0 25px 70px rgba(11,55,180,0.18), inset 0 1px 0 rgba(255,255,255,0.05)",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "16px" }}>
+                {["#1a3a7a", "#1a6aaa", "#1aaad0"].map((c) => (
+                  <div key={c} style={{ width: "9px", height: "9px", borderRadius: "50%", background: c }} />
+                ))}
+                <span style={{ color: "rgba(176,196,222,0.35)", fontSize: "10px", marginLeft: "6px" }}>Enterprise Dashboard</span>
+              </div>
+
+              <div style={{ marginBottom: "16px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+                  <span style={{ color: "rgba(176,196,222,0.55)", fontSize: "11px" }}>System Performance</span>
+                  <span style={{ color: "#00C8FF", fontSize: "11px", fontWeight: 600 }}>98.7%</span>
                 </div>
-              </motion.div>
-            ))}
+                <div style={{ height: "4px", background: "rgba(255,255,255,0.06)", borderRadius: "2px" }}>
+                  <motion.div
+                    animate={{ width: ["0%", "98.7%"] }}
+                    transition={{ delay: 1, duration: 1.4, ease: "easeOut" }}
+                    style={{ height: "100%", background: "linear-gradient(90deg, #0B4DFF, #00C8FF)", borderRadius: "2px", boxShadow: "0 0 8px rgba(0,200,255,0.4)" }}
+                  />
+                </div>
+              </div>
+
+              {[
+                { label: "Cloud Infrastructure", val: "Active", color: "#00C8FF" },
+                { label: "AI Processing", val: "99.9% Uptime", color: "#3B8EFF" },
+                { label: "Security Shield", val: "Secure", color: "#4DABF7" },
+              ].map((item) => (
+                <div key={item.label} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 0", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+                  <span style={{ color: "rgba(176,196,222,0.5)", fontSize: "11px" }}>{item.label}</span>
+                  <span style={{ color: item.color, fontSize: "10px", fontWeight: 600 }}>{item.val}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Floating cards */}
+            <motion.div
+              animate={{ y: [-4, 4, -4] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+              style={{ position: "absolute", top: "6%", right: "0%", background: "rgba(11,55,180,0.18)", border: "1px solid rgba(59,142,255,0.22)", borderRadius: "12px", padding: "12px 16px", backdropFilter: "blur(16px)" }}
+            >
+              <div style={{ color: "#3B8EFF", fontSize: "1.25rem", fontWeight: 800 }}>5+</div>
+              <div style={{ color: "rgba(176,196,222,0.45)", fontSize: "10px", marginTop: "2px" }}>Years Experience</div>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [4, -4, 4] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              style={{ position: "absolute", bottom: "14%", left: "-4%", background: "rgba(0,100,180,0.14)", border: "1px solid rgba(59,142,255,0.18)", borderRadius: "12px", padding: "12px 16px", backdropFilter: "blur(16px)" }}
+            >
+              <div style={{ color: "#00C8FF", fontSize: "1.25rem", fontWeight: 800 }}>120+</div>
+              <div style={{ color: "rgba(176,196,222,0.45)", fontSize: "10px", marginTop: "2px" }}>Projects Delivered</div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -221,16 +210,12 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
-        style={{ position: "absolute", bottom: "28px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px", color: "rgba(220,210,190,0.2)", fontSize: "0.65rem", letterSpacing: "0.08em" }}
+        style={{ position: "absolute", bottom: "24px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px", color: "rgba(176,196,222,0.25)", fontSize: "0.7rem" }}
       >
-        <div style={{ width: "1px", height: "32px", background: "linear-gradient(to bottom, rgba(201,168,76,0.5), transparent)", position: "relative", overflow: "hidden" }}>
-          <motion.div
-            animate={{ y: [-32, 32] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "14px", background: "linear-gradient(to bottom, transparent, #C9A84C, transparent)" }}
-          />
+        <div style={{ width: "1px", height: "28px", background: "linear-gradient(to bottom, rgba(59,142,255,0.5), transparent)", position: "relative", overflow: "hidden" }}>
+          <motion.div animate={{ y: [-28, 28] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "12px", background: "linear-gradient(to bottom, transparent, #3B8EFF, transparent)" }} />
         </div>
-        <span>SCROLL</span>
+        <span>Scroll</span>
       </motion.div>
     </section>
   );

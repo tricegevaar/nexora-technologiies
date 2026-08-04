@@ -3,44 +3,56 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=350&fit=crop",
-    title: "FinFlow",
-    category: "FinTech",
-    desc: "A real-time financial management platform for modern businesses.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=350&fit=crop",
+    title: "Enterprise CRM Platform",
+    category: "Web",
+    desc: "Scalable CRM solution that increased sales by 45% and cut response time by 60%.",
     tags: ["React", "Node.js", "MongoDB"],
     result: "+45% Revenue Growth",
-    color: "#C9A84C",
   },
   {
-    image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&h=350&fit=crop",
-    title: "EduConnect",
-    category: "EdTech",
-    desc: "A comprehensive LMS connecting educators and learners.",
-    tags: ["React Native", "Firebase", "AI"],
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=350&fit=crop",
+    title: "AI-Powered Fitness App",
+    category: "Mobile",
+    desc: "Cross-platform app with ML recommendations. 50K+ downloads in first 6 months.",
+    tags: ["React Native", "Firebase", "TensorFlow"],
     result: "50K+ Downloads",
-    color: "#C9A84C",
   },
   {
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=350&fit=crop",
-    title: "HealthPlus",
-    category: "HealthTech",
-    desc: "A digital health platform improving patient care and operations.",
-    tags: ["Vue.js", "Python", "ML"],
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=350&fit=crop",
+    title: "Cloud Infrastructure Migration",
+    category: "Cloud",
+    desc: "AWS migration with zero downtime, reducing infrastructure costs by 40%.",
+    tags: ["AWS", "Docker", "Kubernetes"],
     result: "40% Cost Reduction",
-    color: "#C9A84C",
   },
   {
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=350&fit=crop",
-    title: "RetailHub",
-    category: "E-Commerce",
-    desc: "An e-commerce platform driving seamless shopping experiences.",
-    tags: ["Next.js", "Stripe", "AWS"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=350&fit=crop",
+    title: "Real-Time Analytics Dashboard",
+    category: "Web",
+    desc: "Processing 1M+ data points daily with sub-200ms response times.",
+    tags: ["Vue.js", "D3.js", "Python"],
     result: "1M+ Data Points/Day",
-    color: "#C9A84C",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=600&h=350&fit=crop",
+    title: "AI Process Automation",
+    category: "AI",
+    desc: "ML algorithms automating business workflows with 95% accuracy.",
+    tags: ["Python", "TensorFlow", "NLP"],
+    result: "20hrs Saved/Week",
+  },
+  {
+    image: "/photos/azure portal.webp",
+    title: "Secure Cloud Migration",
+    category: "Cloud",
+    desc: "Enterprise-grade security implementation achieving 100% compliance.",
+    tags: ["Azure", "Cybersecurity", "ISO"],
+    result: "99.9% Uptime",
   },
 ];
 
@@ -49,58 +61,24 @@ export default function Portfolio() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section style={{ background: "#111114", padding: "100px 0" }}>
+    <section style={{ background: "var(--deep-navy)", padding: "100px 0" }}>
       <div className="container" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+          style={{ marginBottom: "60px" }}
+        >
+          <h2 className="section-title">
+            Case <span className="gradient-text-static">Studies</span>
+          </h2>
+          <p className="section-subtitle">
+            Real results for real businesses — explore how we&apos;ve helped clients grow.
+          </p>
+        </motion.div>
 
-        {/* Header */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "flex-start", marginBottom: "60px" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-          >
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.2)", padding: "5px 14px", borderRadius: "50px", marginBottom: "20px" }}>
-              <span style={{ color: "#C9A84C", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>Our Work</span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 800, color: "#F4F0E8", lineHeight: 1.15, letterSpacing: "-0.02em", fontFamily: "'Inter', sans-serif" }}>
-              Solutions That Speak
-              <br />for{" "}
-              <span style={{ background: "linear-gradient(135deg, #C9A84C, #F0C060)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                Themselves
-              </span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "20px" }}
-          >
-            <p style={{ color: "rgba(220,210,190,0.55)", fontSize: "0.875rem", lineHeight: 1.75 }}>
-              See how we&apos;ve helped businesses transform, innovate, and grow.
-            </p>
-            <Link
-              href="/portfolio"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "8px",
-                padding: "11px 22px", borderRadius: "8px",
-                border: "1px solid rgba(201,168,76,0.3)",
-                color: "#C9A84C", fontSize: "0.85rem", fontWeight: 600,
-                textDecoration: "none", background: "transparent",
-                width: "fit-content",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(201,168,76,0.08)"; e.currentTarget.style.borderColor = "#C9A84C"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.3)"; }}
-            >
-              View All Projects <ArrowRight size={14} />
-            </Link>
-          </motion.div>
-        </div>
-
-        {/* Projects grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4" style={{ gap: "20px" }}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3" style={{ gap: "24px", marginBottom: "50px" }}>
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
@@ -108,53 +86,85 @@ export default function Portfolio() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.08, duration: 0.4 }}
               style={{
-                background: "#16161A",
-                border: "1px solid rgba(201,168,76,0.1)",
-                borderRadius: "14px",
+                background: "rgba(11,77,255,0.05)",
+                border: "1px solid rgba(0,180,255,0.1)",
+                borderRadius: "20px",
                 overflow: "hidden",
-                transition: "all 0.35s ease",
+                transition: "all 0.4s ease",
                 cursor: "pointer",
               }}
-              whileHover={{ borderColor: "rgba(201,168,76,0.28)", y: -5, boxShadow: "0 20px 50px rgba(0,0,0,0.5)" }}
+              whileHover={{ borderColor: "rgba(0,180,255,0.3)", y: -6, boxShadow: "0 20px 50px rgba(11,77,255,0.15)" }}
             >
               {/* Image */}
-              <div style={{ position: "relative", height: "160px", overflow: "hidden" }}>
+              <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
                 <img
                   src={project.image}
                   alt={project.title}
                   style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.06)"; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
                 />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,11,0.85) 0%, transparent 55%)" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,7,12,0.8) 0%, transparent 60%)" }} />
+                {/* Result badge */}
+                <div
+                  style={{
+                    position: "absolute", bottom: "12px", left: "12px",
+                    background: "rgba(11,77,255,0.9)",
+                    border: "1px solid rgba(0,180,255,0.4)",
+                    borderRadius: "8px",
+                    padding: "4px 10px",
+                    fontSize: "11px",
+                    fontWeight: 700,
+                    color: "#1DE9FF",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  {project.result}
+                </div>
               </div>
 
               {/* Content */}
-              <div style={{ padding: "18px" }}>
-                <h3 style={{ color: "#F4F0E8", fontWeight: 700, fontSize: "0.95rem", marginBottom: "6px", fontFamily: "'Inter', sans-serif" }}>
+              <div style={{ padding: "24px" }}>
+                <h3 style={{ color: "white", fontWeight: 600, fontSize: "1rem", marginBottom: "8px" }}>
                   {project.title}
                 </h3>
-                <p style={{ color: "rgba(220,210,190,0.5)", fontSize: "0.8rem", lineHeight: 1.6, marginBottom: "14px" }}>
+                <p style={{ color: "rgba(183,195,208,0.6)", fontSize: "0.85rem", lineHeight: 1.6, marginBottom: "16px" }}>
                   {project.desc}
                 </p>
-                {/* Category tag */}
-                <span style={{
-                  display: "inline-block",
-                  background: "rgba(201,168,76,0.08)",
-                  color: "rgba(201,168,76,0.7)",
-                  border: "1px solid rgba(201,168,76,0.15)",
-                  borderRadius: "50px",
-                  padding: "3px 10px",
-                  fontSize: "0.72rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.04em",
-                }}>
-                  {project.category}
-                </span>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        background: "rgba(0,180,255,0.07)",
+                        color: "#00B4FF",
+                        border: "1px solid rgba(0,180,255,0.15)",
+                        borderRadius: "50px",
+                        padding: "3px 10px",
+                        fontSize: "0.75rem",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.5, duration: 0.4 }}
+          className="text-center"
+        >
+          <Link href="/portfolio" className="btn-primary inline-flex group">
+            View All Case Studies
+            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

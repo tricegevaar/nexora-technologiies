@@ -21,15 +21,25 @@ export default function Clients() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section style={{ background: "#0A0A0B", padding: "70px 0" }}>
+    <section style={{ background: "var(--dark-bg)", padding: "80px 0" }}>
       <div className="container" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          style={{ textAlign: "center", marginBottom: "40px" }}
+          className="text-center"
+          style={{ marginBottom: "50px" }}
         >
-          <p style={{ color: "rgba(220,210,190,0.3)", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+          <p
+            style={{
+              color: "rgba(183,195,208,0.5)",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              marginBottom: "8px",
+            }}
+          >
             Trusted by Innovative Companies
           </p>
         </motion.div>
@@ -37,22 +47,22 @@ export default function Clients() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.15, duration: 0.5 }}
-          style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px", alignItems: "center" }}
+          transition={{ delay: 0.2, duration: 0.5 }}
           className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10"
+          style={{ gap: "16px", alignItems: "center" }}
         >
           {clients.map((client, i) => (
             <motion.div
               key={client.name}
-              initial={{ opacity: 0, scale: 0.92 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.04 * i, duration: 0.3 }}
+              transition={{ delay: 0.05 * i, duration: 0.3 }}
               style={{
-                background: "rgba(201,168,76,0.03)",
-                border: "1px solid rgba(201,168,76,0.08)",
-                borderRadius: "10px",
+                background: "rgba(11,77,255,0.04)",
+                border: "1px solid rgba(0,180,255,0.08)",
+                borderRadius: "12px",
                 padding: "12px",
-                height: "72px",
+                height: "80px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -60,8 +70,8 @@ export default function Clients() {
                 cursor: "pointer",
               }}
               whileHover={{
-                borderColor: "rgba(201,168,76,0.22)",
-                background: "rgba(201,168,76,0.06)",
+                borderColor: "rgba(0,180,255,0.25)",
+                background: "rgba(11,77,255,0.08)",
               }}
             >
               <img
@@ -69,19 +79,19 @@ export default function Clients() {
                 alt={client.name}
                 style={{
                   maxWidth: "100%",
-                  maxHeight: "48px",
+                  maxHeight: "55px",
                   objectFit: "contain",
-                  opacity: 0.55,
-                  filter: "grayscale(40%) brightness(1.1)",
+                  opacity: 0.7,
+                  filter: "grayscale(30%)",
                   transition: "all 0.3s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.opacity = "1";
-                  e.currentTarget.style.filter = "grayscale(0%) brightness(1.15)";
+                  e.currentTarget.style.filter = "grayscale(0%)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = "0.55";
-                  e.currentTarget.style.filter = "grayscale(40%) brightness(1.1)";
+                  e.currentTarget.style.opacity = "0.7";
+                  e.currentTarget.style.filter = "grayscale(30%)";
                 }}
               />
             </motion.div>

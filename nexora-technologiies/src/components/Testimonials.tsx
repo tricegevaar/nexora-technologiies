@@ -34,23 +34,21 @@ export default function Testimonials() {
   const prev = () => setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section style={{ background: "#111114", padding: "100px 0" }}>
-      <div className="container" style={{ maxWidth: "840px" }} ref={ref}>
+    <section style={{ background: "var(--dark-bg)", padding: "100px 0" }}>
+      <div className="container max-w-4xl" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          style={{ textAlign: "center", marginBottom: "52px" }}
+          className="text-center"
+          style={{ marginBottom: "60px" }}
         >
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.2)", padding: "5px 14px", borderRadius: "50px", marginBottom: "20px" }}>
-            <span style={{ color: "#C9A84C", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>Client Voices</span>
-          </div>
-          <h2 style={{ fontSize: "clamp(1.7rem, 3vw, 2.4rem)", fontWeight: 800, color: "#F4F0E8", lineHeight: 1.15, letterSpacing: "-0.02em", fontFamily: "'Inter', sans-serif" }}>
-            What Our{" "}
-            <span style={{ background: "linear-gradient(135deg, #C9A84C, #F0C060)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              Clients Say
-            </span>
+          <h2 className="section-title">
+            What Clients <span className="gradient-text-static">Say</span>
           </h2>
+          <p className="section-subtitle">
+            Real feedback from businesses we&apos;ve helped succeed.
+          </p>
         </motion.div>
 
         <motion.div
@@ -58,25 +56,33 @@ export default function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <div style={{
-            background: "#16161A",
-            border: "1px solid rgba(201,168,76,0.12)",
-            borderRadius: "20px",
-            padding: "48px 40px",
-            position: "relative",
-            textAlign: "center",
-          }}>
-            {/* Top gold accent */}
-            <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "60px", height: "2px", background: "linear-gradient(90deg, transparent, #C9A84C, transparent)", borderRadius: "2px" }} />
-
+          <div
+            style={{
+              background: "rgba(11,77,255,0.06)",
+              border: "1px solid rgba(0,180,255,0.15)",
+              borderRadius: "24px",
+              padding: "48px 40px",
+              position: "relative",
+              textAlign: "center",
+            }}
+          >
             {/* Quote icon */}
-            <div style={{
-              position: "absolute", top: "24px", left: "28px",
-              width: "36px", height: "36px",
-              background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.18)",
-              borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <Quote size={15} style={{ color: "#C9A84C" }} />
+            <div
+              style={{
+                position: "absolute",
+                top: "24px",
+                left: "28px",
+                width: "40px",
+                height: "40px",
+                background: "rgba(0,180,255,0.1)",
+                border: "1px solid rgba(0,180,255,0.2)",
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Quote size={16} style={{ color: "#00B4FF" }} />
             </div>
 
             <motion.p
@@ -85,10 +91,12 @@ export default function Testimonials() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               style={{
-                fontSize: "1.05rem", color: "rgba(244,240,232,0.8)",
-                lineHeight: 1.85, fontStyle: "italic",
-                marginBottom: "36px", paddingTop: "12px",
-                maxWidth: "600px", margin: "0 auto 36px",
+                fontSize: "1.15rem",
+                color: "rgba(255,255,255,0.8)",
+                lineHeight: 1.8,
+                fontStyle: "italic",
+                marginBottom: "36px",
+                paddingTop: "16px",
               }}
             >
               &ldquo;{testimonials[current].content}&rdquo;
@@ -99,48 +107,68 @@ export default function Testimonials() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+              className="flex flex-col items-center"
             >
-              <div style={{
-                width: "46px", height: "46px", borderRadius: "50%",
-                background: "linear-gradient(135deg, #A07830, #C9A84C)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                color: "#0A0A0B", fontWeight: 800, fontSize: "0.85rem",
-                marginBottom: "10px",
-                boxShadow: "0 4px 16px rgba(201,168,76,0.3)",
-              }}>
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  background: "linear-gradient(135deg, #0B4DFF, #00B4FF)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "white",
+                  fontWeight: 700,
+                  fontSize: "0.9rem",
+                  marginBottom: "12px",
+                  boxShadow: "0 4px 20px rgba(11,77,255,0.4)",
+                }}
+              >
                 {testimonials[current].initials}
               </div>
-              <h4 style={{ color: "#F4F0E8", fontWeight: 600, fontSize: "0.95rem", margin: 0 }}>
+              <h4 style={{ color: "white", fontWeight: 600, fontSize: "1rem" }}>
                 {testimonials[current].author}
               </h4>
-              <p style={{ color: "rgba(220,210,190,0.4)", fontSize: "0.82rem", marginTop: "4px" }}>
+              <p style={{ color: "rgba(183,195,208,0.5)", fontSize: "0.85rem", marginTop: "4px" }}>
                 {testimonials[current].role}
               </p>
             </motion.div>
           </div>
 
           {/* Navigation */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginTop: "28px" }}>
+          <div className="flex items-center justify-center gap-4" style={{ marginTop: "32px" }}>
             <button
               onClick={prev}
-              style={{ width: "38px", height: "38px", borderRadius: "50%", background: "rgba(201,168,76,0.06)", border: "1px solid rgba(201,168,76,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(220,210,190,0.5)", cursor: "pointer", transition: "all 0.3s ease" }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = "#C9A84C"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.4)"; e.currentTarget.style.background = "rgba(201,168,76,0.1)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(220,210,190,0.5)"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.15)"; e.currentTarget.style.background = "rgba(201,168,76,0.06)"; }}
+              style={{
+                width: "40px", height: "40px",
+                borderRadius: "50%",
+                background: "rgba(11,77,255,0.08)",
+                border: "1px solid rgba(0,180,255,0.15)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                color: "rgba(183,195,208,0.6)",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#00B4FF"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.4)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(183,195,208,0.6)"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.15)"; }}
             >
-              <ChevronLeft size={17} />
+              <ChevronLeft size={18} />
             </button>
 
-            <div style={{ display: "flex", gap: "8px" }}>
+            <div className="flex gap-2">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
                   style={{
-                    height: "6px", width: i === current ? "22px" : "6px",
-                    borderRadius: "3px",
-                    background: i === current ? "#C9A84C" : "rgba(220,210,190,0.15)",
-                    border: "none", cursor: "pointer", transition: "all 0.3s ease",
+                    height: "8px",
+                    width: i === current ? "24px" : "8px",
+                    borderRadius: "4px",
+                    background: i === current ? "#00B4FF" : "rgba(255,255,255,0.15)",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
                   }}
                 />
               ))}
@@ -148,11 +176,20 @@ export default function Testimonials() {
 
             <button
               onClick={next}
-              style={{ width: "38px", height: "38px", borderRadius: "50%", background: "rgba(201,168,76,0.06)", border: "1px solid rgba(201,168,76,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(220,210,190,0.5)", cursor: "pointer", transition: "all 0.3s ease" }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = "#C9A84C"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.4)"; e.currentTarget.style.background = "rgba(201,168,76,0.1)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(220,210,190,0.5)"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.15)"; e.currentTarget.style.background = "rgba(201,168,76,0.06)"; }}
+              style={{
+                width: "40px", height: "40px",
+                borderRadius: "50%",
+                background: "rgba(11,77,255,0.08)",
+                border: "1px solid rgba(0,180,255,0.15)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                color: "rgba(183,195,208,0.6)",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#00B4FF"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.4)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(183,195,208,0.6)"; e.currentTarget.style.borderColor = "rgba(0,180,255,0.15)"; }}
             >
-              <ChevronRight size={17} />
+              <ChevronRight size={18} />
             </button>
           </div>
         </motion.div>

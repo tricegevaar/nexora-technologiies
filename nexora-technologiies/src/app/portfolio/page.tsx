@@ -59,86 +59,61 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        style={{
-          padding: "160px 0 90px",
-          minHeight: "65vh",
-          display: "flex",
-          alignItems: "center",
-          background: "#0A0A0B",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div className="absolute inset-0 pointer-events-none">
-          <motion.div
-            animate={{ opacity: [0.15, 0.28, 0.15] }}
-            transition={{ duration: 9, repeat: Infinity }}
-            style={{ position: "absolute", top: "5%", left: "5%", width: "50%", height: "65%", background: "radial-gradient(ellipse, rgba(201,168,76,0.1) 0%, transparent 70%)", filter: "blur(60px)" }}
-          />
-          <motion.div
-            animate={{ opacity: [0.08, 0.16, 0.08] }}
-            transition={{ duration: 12, repeat: Infinity, delay: 2 }}
-            style={{ position: "absolute", bottom: "5%", right: "5%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 70%)", filter: "blur(70px)" }}
-          />
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(201,168,76,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.015) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
+      <section className="relative min-h-screen flex items-center overflow-hidden hero-mobile" style={{ padding: "160px 0 80px", background: "var(--dark-bg)" }}>
+        <div className="absolute inset-0">
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #05070C 0%, #071526 60%, #05070C 100%)" }} />
+          <motion.div animate={{ opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 8, repeat: Infinity }} className="absolute" style={{ top: "5%", left: "5%", width: "50%", height: "60%", background: "radial-gradient(ellipse, rgba(11,77,255,0.15) 0%, transparent 70%)", filter: "blur(50px)" }} />
+          <motion.div animate={{ opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 10, repeat: Infinity, delay: 2 }} className="absolute" style={{ bottom: "10%", right: "5%", width: "45%", height: "55%", background: "radial-gradient(ellipse, rgba(0,180,255,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(0,180,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,255,0.025) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         </div>
-
-        <div className="container relative z-10">
-          <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-              <motion.div
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.22)", padding: "5px 14px", borderRadius: "50px", marginBottom: "28px" }}
-              >
-                <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#C9A84C", boxShadow: "0 0 6px #C9A84C", display: "inline-block" }} />
-                <span style={{ color: "#C9A84C", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>Case Studies</span>
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
-                style={{ fontSize: "clamp(2.2rem, 5vw, 3.8rem)", fontWeight: 800, color: "#F4F0E8", lineHeight: 1.1, marginBottom: "22px", letterSpacing: "-0.03em", fontFamily: "'Inter', sans-serif" }}
-              >
-                Transforming{" "}
-                <span style={{ background: "linear-gradient(135deg, #C9A84C, #F0C060)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                  Ideas
-                </span>
-                <br />Into Real Results
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.7 }}
-                style={{ fontSize: "1rem", lineHeight: 1.8, color: "rgba(220,210,190,0.6)", maxWidth: "580px", margin: "0 auto" }}
-              >
-                Explore our collection of successful projects that have helped businesses transform, innovate, and grow.
-              </motion.p>
+        <div className="container relative z-10 text-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="inline-flex items-center gap-2 mb-8" style={{ background: "rgba(0,180,255,0.08)", border: "1px solid rgba(0,180,255,0.2)", padding: "6px 16px", borderRadius: "50px" }}>
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#1DE9FF", boxShadow: "0 0 8px #1DE9FF", display: "inline-block" }} />
+              <span style={{ color: "#1DE9FF", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Case Studies</span>
             </motion.div>
-          </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
+              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", fontWeight: 800, color: "white", lineHeight: 1.1, marginBottom: "24px", letterSpacing: "-0.02em" }}
+            >
+              Transforming <span className="gradient-text">Ideas</span>
+              <br />Into Real Results
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}
+              style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "rgba(183,195,208,0.8)", maxWidth: "600px", margin: "0 auto", fontWeight: 400 }}
+            >
+              Explore our collection of successful projects that have revolutionized businesses and delivered measurable results across industries.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Projects */}
-      <section style={{ background: "#111114", padding: "100px 0" }}>
+      {/* Portfolio */}
+      <section style={{ background: "var(--dark-bg)", padding: "100px 0" }}>
         <div className="container">
-
-          {/* Filter tabs */}
+          {/* Filter */}
           <motion.div
-            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.4 }}
-            style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "56px" }}
+            initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.4 }}
+            className="flex flex-wrap justify-center"
+            style={{ gap: "10px", marginBottom: "60px" }}
           >
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
                 style={{
-                  padding: "9px 22px", borderRadius: "50px",
-                  fontSize: "0.85rem", fontWeight: 600, border: "1px solid",
-                  cursor: "pointer", transition: "all 0.3s ease",
-                  background: filter === cat ? "#C9A84C" : "rgba(201,168,76,0.04)",
-                  borderColor: filter === cat ? "#C9A84C" : "rgba(201,168,76,0.15)",
-                  color: filter === cat ? "#0A0A0B" : "rgba(220,210,190,0.6)",
-                  boxShadow: filter === cat ? "0 4px 18px rgba(201,168,76,0.25)" : "none",
-                  fontFamily: "Inter, sans-serif",
+                  padding: "10px 22px",
+                  borderRadius: "50px",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  border: "1px solid",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                  background: filter === cat ? "linear-gradient(135deg, #0B4DFF, #00B4FF)" : "rgba(0,180,255,0.05)",
+                  borderColor: filter === cat ? "transparent" : "rgba(0,180,255,0.15)",
+                  color: filter === cat ? "white" : "rgba(183,195,208,0.7)",
+                  boxShadow: filter === cat ? "0 4px 20px rgba(11,77,255,0.3)" : "none",
                 }}
               >
                 {cat}
@@ -146,45 +121,44 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
 
-          {/* Project cards */}
-          <div style={{ marginBottom: "56px" }}>
+          {/* Projects */}
+          <div style={{ marginBottom: "60px" }}>
             <AnimatePresence mode="wait">
               {filtered.map((project, i) => (
                 <motion.div
                   key={project.title}
-                  initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }}
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: i * 0.05, duration: 0.3 }}
                   style={{
-                    background: "#16161A",
-                    border: "1px solid rgba(201,168,76,0.1)",
-                    borderRadius: "16px",
-                    padding: "28px",
-                    marginBottom: "16px",
+                    background: "rgba(11,77,255,0.05)",
+                    border: "1px solid rgba(0,180,255,0.1)",
+                    borderRadius: "20px",
+                    padding: "32px",
+                    marginBottom: "20px",
                     transition: "border-color 0.3s ease",
                   }}
-                  whileHover={{ borderColor: "rgba(201,168,76,0.25)" }}
+                  whileHover={{ borderColor: "rgba(0,180,255,0.25)" }}
                 >
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "32px" }}>
-
+                  <div className="grid lg:grid-cols-3" style={{ gap: "36px" }}>
                     {/* Image + info */}
                     <div>
-                      <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden", marginBottom: "16px", height: "172px" }}>
+                      <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", marginBottom: "18px", height: "180px" }}>
                         <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,11,0.7) 0%, transparent 55%)" }} />
-                        <span style={{ position: "absolute", top: "10px", left: "10px", background: "rgba(201,168,76,0.15)", color: "#C9A84C", border: "1px solid rgba(201,168,76,0.3)", borderRadius: "6px", padding: "3px 10px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.04em" }}>
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,7,12,0.7) 0%, transparent 60%)" }} />
+                        <span style={{ position: "absolute", top: "12px", left: "12px", background: "rgba(11,77,255,0.85)", color: "#1DE9FF", border: "1px solid rgba(0,180,255,0.4)", borderRadius: "6px", padding: "3px 10px", fontSize: "0.72rem", fontWeight: 700 }}>
                           {project.category}
                         </span>
                       </div>
-                      <h3 style={{ color: "#F4F0E8", fontWeight: 600, fontSize: "0.95rem", marginBottom: "8px", fontFamily: "'Inter', sans-serif" }}>{project.title}</h3>
-                      <p style={{ color: "rgba(220,210,190,0.5)", fontSize: "0.82rem", lineHeight: 1.6 }}>{project.desc}</p>
+                      <h3 style={{ color: "white", fontWeight: 600, fontSize: "1rem", marginBottom: "8px" }}>{project.title}</h3>
+                      <p style={{ color: "rgba(183,195,208,0.55)", fontSize: "0.85rem", lineHeight: 1.6 }}>{project.desc}</p>
                     </div>
 
-                    {/* Technologies */}
-                    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                      <span style={{ color: "rgba(220,210,190,0.3)", fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "14px", display: "block" }}>Technologies</span>
+                    {/* Tech */}
+                    <div className="flex flex-col justify-center">
+                      <span style={{ color: "rgba(183,195,208,0.35)", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "14px", display: "block" }}>Technologies</span>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                         {project.tags.map((tag) => (
-                          <span key={tag} style={{ background: "rgba(201,168,76,0.07)", color: "rgba(201,168,76,0.75)", border: "1px solid rgba(201,168,76,0.15)", borderRadius: "50px", padding: "5px 12px", fontSize: "0.78rem", fontWeight: 500 }}>
+                          <span key={tag} style={{ background: "rgba(0,180,255,0.07)", color: "#00B4FF", border: "1px solid rgba(0,180,255,0.15)", borderRadius: "50px", padding: "5px 12px", fontSize: "0.8rem", fontWeight: 500 }}>
                             {tag}
                           </span>
                         ))}
@@ -192,13 +166,13 @@ export default function PortfolioPage() {
                     </div>
 
                     {/* Results */}
-                    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                      <span style={{ color: "rgba(220,210,190,0.3)", fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "14px", display: "block" }}>Results</span>
-                      <div className="portfolio-results-grid">
+                    <div className="flex flex-col justify-center portfolio-results">
+                      <span style={{ color: "rgba(183,195,208,0.35)", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "14px", display: "block" }}>Results</span>
+                      <div className="portfolio-results-grid" style={{ gap: "12px" }}>
                         {project.results.map((r) => (
-                          <div key={r.label} className="portfolio-result-item">
-                            <div style={{ color: "#C9A84C", fontWeight: 700, fontSize: "1.05rem" }}>{r.value}</div>
-                            <div style={{ color: "rgba(220,210,190,0.4)", fontSize: "0.7rem", marginTop: "3px" }}>{r.label}</div>
+                          <div key={r.label} className="portfolio-result-item" style={{ textAlign: "center" }}>
+                            <div style={{ color: "#00B4FF", fontWeight: 700, fontSize: "1.1rem" }}>{r.value}</div>
+                            <div style={{ color: "rgba(183,195,208,0.4)", fontSize: "0.72rem", marginTop: "3px" }}>{r.label}</div>
                           </div>
                         ))}
                       </div>
@@ -210,23 +184,11 @@ export default function PortfolioPage() {
           </div>
 
           {/* CTA */}
-          <div style={{ textAlign: "center" }}>
-            <p style={{ color: "rgba(220,210,190,0.35)", marginBottom: "16px", fontSize: "0.875rem" }}>
-              Ready to become our next success story?
-            </p>
-            <Link
-              href="/contact"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "10px",
-                padding: "13px 28px", borderRadius: "8px",
-                background: "#C9A84C", color: "#0A0A0B",
-                fontWeight: 700, fontSize: "0.875rem", textDecoration: "none",
-                border: "1px solid #C9A84C", transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "#F0C060"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(201,168,76,0.35)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "#C9A84C"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "translateY(0)"; }}
-            >
-              Start Your Project <ArrowRight size={15} />
+          <div className="text-center">
+            <p style={{ color: "rgba(183,195,208,0.4)", marginBottom: "16px", fontSize: "0.875rem" }}>Ready to become our next success story?</p>
+            <Link href="/contact" className="btn-primary inline-flex group">
+              Start Your Project
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
         </div>
